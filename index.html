@@ -17,6 +17,7 @@
 </head>
 <body>
     <a-scene>
+                                  
       <a-entity id="box" class="link" geometry="primitive: box"
                 material="color: #c7c7c7; shader: flat"
                 position="0 0.15 -5"
@@ -26,12 +27,30 @@
                 <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
                 <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>           
       </a-entity>  
+       <a-entity id="box" class="link" geometry="primitive: box"
+                material="color: #c7c7c7; shader: flat"
+                position="0 0.15 -5"
+                light="type: point; intensity: 5"
+                animation__bounce="property: position; dir: alternate; dur: 10000; 
+                                   easing: linear; loop: true; from: 10 -12 9; to: 10 0.25 9; startEvents: loaded">
+                <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+                <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>           
+      </a-entity>  
+       <a-entity id="box" class="link" geometry="primitive: box"
+                material="color: #c7c7c7; shader: flat"
+                position="0 0.15 -5"
+                light="type: point; intensity: 5"
+                animation__bounce="property: position; dir: alternate; dur: 12000; 
+                                   easing: linear; loop: true; from: -4 -6 12; to: -4 0.25 12; startEvents: loaded">
+                <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
+                <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>           
+      </a-entity>  
 
       <a-entity id="box" class="link" geometry="primitive: box"
                 material="color: #c7c7c7; shader: flat"
                 position="0 0.15 -5"
                 light="type: point; intensity: 5"
-                animation__bounce="property: position; dir: alternate; dur: 9000; 
+                animation__bounce="property: position; dir: alternate; dur: 8000; 
                                    easing: linear; loop: true; from: 5 -10 3; to: 5 0.25 3; startEvents: loaded">
                 <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
                 <a-animation attribute="scale" begin="mouseenter" dur="300" to="2.3 2.3 2.3"></a-animation>  
@@ -56,9 +75,6 @@
       <a-camera>
         <a-cursor color="#FAFAFA"></a-cursor>
       </a-camera>
-      <div class="footer">
-      A Library of Color<span id = "about"><a href="https://medium.com/@blprnt/a-library-of-colors-5953577a26c0">What is this?</a></span>
-      </div>
      </a-scene>
     </script>
   </body>
