@@ -4,6 +4,7 @@
   width: 300px; /* Adjust to match your bird image width */
   height: 400px; /* Adjust to match your bird image height */
   margin: 100px auto; /* Center the bird vertically and horizontally */
+  perspective: 1000px; /* Enable 3D effect for flipping */
 }
 
 /* Styling for the bird steps */
@@ -13,27 +14,36 @@
   left: 0;
   width: 100%;
   height: auto;
-  opacity: 0; /* Initially hidden */
-  transition: opacity 0.5s ease; /* Smooth fade effect */
-  animation: alternate-steps 2s infinite;
+  backface-visibility: hidden; /* Hide the back side of images */
+  transform-origin: center; /* Flip around the center */
+  animation: flip-steps 2s infinite;
 }
 
-/* First image is visible for the first half of the animation */
+/* First step starts immediately */
 .step1 {
-  animation-delay: 0s; /* Starts immediately */
+  animation-delay: 0s;
 }
 
-/* Second image starts after the first */
+/* Second step flips after the first */
 .step2 {
-  animation-delay: 1s; /* Delay by half the animation duration */
+  animation-delay: 1s;
 }
 
-/* Keyframes for alternating visibility */
-@keyframes alternate-steps {
-  0%, 50% {
-    opacity: 1; /* Fully visible during this phase */
+/* Keyframes for flipping animation */
+@keyframes flip-steps {
+  0% {
+    transform: rotateY(0deg); /* Fully visible */
   }
-  50.01%, 100% {
-    opacity: 0; /* Hidden during this phase */
+  50% {
+    transform: rotateY(90deg); /* Halfway hidden */
+    opacity: 0; /* Hidden at the midpoint */
+  }
+  50.01% {
+    opacity: 1; /* Make the other image visible */
+    transform: rotateY(270deg); /* Coming into view */
+  }
+  100% {
+    transform: rotateY(360deg); /* Fully visible again */
   }
 }
+
