@@ -1,40 +1,17 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rocking Image</title>
-  <style>
-    /* Define the rocking animation */
-    @keyframes rock {
-      0% {
-        transform: rotate(0deg);
-      }
-      25% {
-        transform: rotate(-10deg);
-      }
-      50% {
-        transform: rotate(0deg);
-      }
-      75% {
-        transform: rotate(10deg);
-      }
-      100% {
-        transform: rotate(0deg);
-      }
-    }
-
-    /* Apply the animation to the image */
-    .rocking-image {
-      display: block;
-      margin: auto;
-      animation: rock 2s infinite; /* 2 seconds duration, repeats infinitely */
-    }
-  </style>
+  <title>Walking Bird Animation</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div style="text-align: center;">
-    <img src="images/bird.png" alt="Rocking Image" width="600" class="rocking-image">
+  <div class="walking-bird">
+    <img src="images/bird.png" class="step" alt="Bird Step 1">
+    <img src="imgaes/bird2.PNG" class="step" alt="Bird Step 2">
   </div>
 </body>
 </html>
+
+
