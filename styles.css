@@ -5,15 +5,17 @@
   height: 400px; /* Adjust to match your bird image height */
   margin: 100px auto; /* Center the bird vertically and horizontally */
   perspective: 1000px; /* Enable 3D effect for flipping */
+  overflow: hidden; /* Prevent any overflow from affecting alignment */
 }
 
 /* Styling for the bird steps */
 .step {
-  position: absolute;
+  position: absolute; /* Ensure both images share the exact same position */
   top: 0;
   left: 0;
-  width: 100%;
-  height: auto;
+  width: 100%; /* Ensure both images fill the container width */
+  height: 100%; /* Match container height to ensure alignment */
+  object-fit: contain; /* Scale images to fit the container without distortion */
   backface-visibility: hidden; /* Hide the back side of images */
   transform-origin: center; /* Flip around the center */
   animation: flip-steps 2s infinite;
