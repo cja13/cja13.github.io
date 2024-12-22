@@ -1,36 +1,33 @@
-/* Container for the walking bird */
-.walking-bird {
-  position: absolute;
-  bottom: 50px; /* Starting height from the bottom of the screen */
-  animation: move-across 6s linear infinite; /* Horizontal movement */
-  width: 300px; /* Adjust to match your bird's image width */
-  height: 400px; /* Adjust to match your bird's image height */
+/* Container for the bird */
+.bird {
+  position: relative;
+  width: 300px; /* Adjust to match your bird image width */
+  height: 400px; /* Adjust to match your bird image height */
+  margin: 100px auto; /* Center the bird vertically and horizontally */
 }
 
-/* Styling for both bird steps */
+/* Styling for the bird steps */
 .step {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: auto;
-  animation: walk 1s steps(2) infinite; /* Alternate images */
-  opacity: 1;
+  animation: alternate-steps 1s infinite;
+  opacity: 0; /* Initially hidden */
 }
 
-/* Keyframe for alternating steps */
-@keyframes walk {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
+/* Animation for alternating steps */
+@keyframes alternate-steps {
+  0%, 50% {
+    opacity: 1; /* Show the first image */
+  }
+  50.01%, 100% {
+    opacity: 0; /* Hide the first image */
+  }
 }
 
-/* Keyframe for moving the bird across the screen */
-@keyframes move-across {
-  0% {
-    left: -300px; /* Starts off-screen on the left */
-  }
-  100% {
-    left: 100vw; /* Ends off-screen on the right */
-  }
+/* Second image starts midway through the animation */
+.step:nth-child(2) {
+  animation-delay: 0.5s; /* Delay the start for the second image */
 }
