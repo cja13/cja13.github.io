@@ -1,9 +1,10 @@
 /* Container for the walking bird */
 .walking-bird {
   position: relative;
-  width: 300px; /* Adjust the width to match your image size */
-  height: 400px; /* Adjust the height to match your image size */
-  margin: 0 auto; /* Centers the bird on the page */
+  width: 300px; /* Adjust to your image size */
+  height: 400px; /* Adjust to your image size */
+  margin: 0 auto;
+  overflow: hidden; /* Ensures the container doesn't overflow */
 }
 
 /* Both images are positioned on top of each other */
@@ -13,7 +14,7 @@
   left: 0;
   width: 100%;
   height: auto;
-  animation: walk 1s steps(2) infinite;
+  animation: walk 2s infinite;
   opacity: 0; /* Default to hidden */
 }
 
@@ -23,12 +24,17 @@
   opacity: 1;
 }
 
-/* Animation to alternate between the two steps */
+/* The second image appears after half the animation cycle */
+.step:nth-child(2) {
+  animation-delay: 1s; /* Half the animation cycle */
+}
+
+/* Keyframes to toggle visibility */
 @keyframes walk {
-  0%, 50% {
-    opacity: 1; /* Show the current image */
+  0%, 49.9% {
+    opacity: 1; /* Show current image */
   }
-  50.1%, 100% {
-    opacity: 0; /* Hide the current image */
+  50%, 100% {
+    opacity: 0; /* Hide current image */
   }
 }
