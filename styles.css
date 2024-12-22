@@ -13,21 +13,27 @@
   left: 0;
   width: 100%;
   height: auto;
-  animation: alternate-steps 1s infinite;
   opacity: 0; /* Initially hidden */
+  transition: opacity 0.5s ease; /* Smooth fade effect */
+  animation: alternate-steps 2s infinite;
 }
 
-/* Animation for alternating steps */
+/* First image is visible for the first half of the animation */
+.step1 {
+  animation-delay: 0s; /* Starts immediately */
+}
+
+/* Second image starts after the first */
+.step2 {
+  animation-delay: 1s; /* Delay by half the animation duration */
+}
+
+/* Keyframes for alternating visibility */
 @keyframes alternate-steps {
   0%, 50% {
-    opacity: 1; /* Show the first image */
+    opacity: 1; /* Fully visible during this phase */
   }
   50.01%, 100% {
-    opacity: 0; /* Hide the first image */
+    opacity: 0; /* Hidden during this phase */
   }
-}
-
-/* Second image starts midway through the animation */
-.step:nth-child(2) {
-  animation-delay: 0.5s; /* Delay the start for the second image */
 }
