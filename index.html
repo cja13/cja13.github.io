@@ -1,3 +1,40 @@
-<div style="text-align: center;">
-  <img src="images/bird.png" alt="bord" width="600">
-</div>
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rocking Image</title>
+  <style>
+    /* Define the rocking animation */
+    @keyframes rock {
+      0% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(-10deg);
+      }
+      50% {
+        transform: rotate(0deg);
+      }
+      75% {
+        transform: rotate(10deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+    /* Apply the animation to the image */
+    .rocking-image {
+      display: block;
+      margin: auto;
+      animation: rock 2s infinite; /* 2 seconds duration, repeats infinitely */
+    }
+  </style>
+</head>
+<body>
+  <div style="text-align: center;">
+    <img src="images/bird.png" alt="Rocking Image" width="600" class="rocking-image">
+  </div>
+</body>
+</html>
