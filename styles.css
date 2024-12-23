@@ -1,51 +1,31 @@
-/* Container for the bird */
-.bird {
-  position: relative;
-  width: 300px; /* Adjust to match your bird image width */
-  height: 400px; /* Adjust to match your bird image height */
-  margin: 100px auto; /* Center the bird vertically and horizontally */
-  perspective: 1000px; /* Enable 3D effect for flipping */
-  overflow: hidden; /* Prevent any overflow from affecting alignment */
+/* styles.css */
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #f0f8ff; /* Light background for contrast */
 }
 
-/* Styling for the bird steps */
-.step {
-  position: absolute; /* Ensure both images share the exact same position */
-  top: 0;
+#bird {
+  position: absolute;
+  top: 50%;
   left: 0;
-  width: 100%; /* Ensure both images fill the container width */
-  height: 100%; /* Match container height to ensure alignment */
-  object-fit: contain; /* Scale images to fit the container without distortion */
-  backface-visibility: hidden; /* Hide the back side of images */
-  transform-origin: center; /* Flip around the center */
-  animation: flip-steps 2s infinite;
+  transform: translateY(-50%);
+  animation: walk-cycle 0.5s steps(2) infinite, walk-across 10s linear infinite;
 }
 
-/* First step starts immediately */
-.step1 {
-  animation-delay: 0s;
+#bird img {
+  width: 100px; /* Adjust size as needed */
+  display: block;
 }
 
-/* Second step flips after the first */
-.step2 {
-  animation-delay: 1s;
+@keyframes walk-cycle {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
-/* Keyframes for flipping animation */
-@keyframes flip-steps {
-  0% {
-    transform: rotateY(0deg); /* Fully visible */
-  }
-  50% {
-    transform: rotateY(90deg); /* Halfway hidden */
-    opacity: 0; /* Hidden at the midpoint */
-  }
-  50.01% {
-    opacity: 1; /* Make the other image visible */
-    transform: rotateY(270deg); /* Coming into view */
-  }
-  100% {
-    transform: rotateY(360deg); /* Fully visible again */
-  }
+@keyframes walk-across {
+  0% { left: -100px; }
+  100% { left: 100vw; }
 }
+
 
