@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rotating Images Animation</title>
+    <title>bord</title>
     <style>
         body {
             margin: 0;
@@ -11,13 +11,14 @@
             background-color: #f0f0f0;
             display: flex;
             align-items: center; /* Vertically center the animation */
+            justify-content: center; /* Start centered horizontally */
             overflow: hidden; /* Prevent scrollbars */
         }
 
         .image-container {
             position: relative;
             display: flex;
-            animation: moveAndRotate 2s infinite alternate; /* Animation for movement and rotation */
+            animation: moveAndRotate 10s infinite; /* Animation for movement and rotation */
         }
 
         #image1, #image2 {
@@ -33,13 +34,19 @@
 
         @keyframes moveAndRotate {
             0% {
-                transform: translateX(0) rotateY(0deg); /* Start on the left, no rotation */
+                transform: translateX(0) rotateY(0deg); /* Start at the center, no rotation */
+            }
+            25% {
+                transform: translateX(-50vw) rotateY(0deg); /* Move to the left edge, no rotation */
             }
             50% {
-                transform: translateX(50vw) rotateY(90deg); /* Halfway, rotate partially */
+                transform: translateX(-50vw) rotateY(180deg); /* Rotate 180 degrees while on the left edge */
+            }
+            75% {
+                transform: translateX(50vw) rotateY(180deg); /* Move to the right edge with rotated images */
             }
             100% {
-                transform: translateX(100vw) rotateY(180deg); /* Fully moved and rotated */
+                transform: translateX(0) rotateY(0deg); /* Return to the center, reset rotation */
             }
         }
     </style>
@@ -51,7 +58,7 @@
     </div>
 
     <script>
-        // JavaScript to alternate the images
+        // JavaScript to alternate the images during rotation
         const img1 = document.getElementById('image1');
         const img2 = document.getElementById('image2');
         
@@ -66,10 +73,7 @@
                 img2.style.display = 'block';
             }
             showFirst = !showFirst;
-        }, 500); // Switch every 500 milliseconds (0.5 seconds)
+        }, 5000); // Switch images every 5 seconds (matches half the animation duration)
     </script>
 </body>
 </html>
-
-
-
