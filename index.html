@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Alternating Animation</title>
+    <title>bird</title>
     <style>
         body {
             margin: 0;
@@ -39,10 +39,10 @@
                 transform: translateX(-50vw) rotateY(180deg); /* Rotate at the left edge */
             }
             75% {
-                transform: translateX(50vw); /* Move to the right */
+                transform: translateX(0) rotateY(180deg); /* Rotate back and move to the right */
             }
             100% {
-                transform: translateX(50vw) rotateY(180deg); /* Rotate when it reaches the right edge */
+                transform: translateX(50vw) rotateY(180deg); /* Rotate at the right edge */
             }
         }
     </style>
@@ -57,7 +57,6 @@
         // JavaScript to alternate the images
         const img1 = document.getElementById('image1');
         const img2 = document.getElementById('image2');
-        const container = document.querySelector('.image-container');
         
         let showFirst = true;
 
@@ -75,4 +74,3 @@
     </script>
 </body>
 </html>
-
