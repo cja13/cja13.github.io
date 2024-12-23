@@ -1,15 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Walking Bird</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Alternator</title>
+    <style>
+        #image1, #image2 {
+            position: absolute;
+            width: 300px; /* Set your desired width */
+            height: auto;
+            display: none; /* Both images are initially hidden */
+        }
+
+        #image1 {
+            display: block; /* Start by showing image1 */
+        }
+    </style>
 </head>
 <body>
-  <div id="bird">
-    <img src="images/bird.png" alt="Bird Frame 1">
-    <img src="images/bird2 (1).png" alt="Bird Frame 2">
-  </div>
+    <img id="image1" src="images/bird.png" alt="Image 1">
+    <img id="image2" src="images/bird2 (1).png" alt="Image 2">
+
+    <script>
+        // JavaScript to toggle the images
+        const img1 = document.getElementById('image1');
+        const img2 = document.getElementById('image2');
+        
+        let showFirst = true;
+
+        setInterval(() => {
+            if (showFirst) {
+                img1.style.display = 'block';
+                img2.style.display = 'none';
+            } else {
+                img1.style.display = 'none';
+                img2.style.display = 'block';
+            }
+            showFirst = !showFirst;
+        }, 500); // Switch every 500 milliseconds (0.5 seconds)
+    </script>
 </body>
 </html>
+
