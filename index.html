@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Alternating Animation</title>
+    <title>bord</title>
     <style>
         body {
             margin: 0;
@@ -58,7 +58,7 @@
     </div>
 
     <script>
-        // JavaScript to alternate the images in the order: 1, 2, 3, 2, 1, 2, 3, etc.
+        // JavaScript to alternate the images in the order: 1, 2, 3, 2, 1, etc.
         const img1 = document.getElementById('image1');
         const img2 = document.getElementById('image2');
         const img3 = document.getElementById('image3');
@@ -67,21 +67,26 @@
 
         // Function to alternate the images in the order 1, 2, 3, 2, 1, etc.
         function alternateImages() {
+            // Show image 1 first
             if (currentImage === 1) {
                 img1.style.display = 'block';
                 img2.style.display = 'none';
                 img3.style.display = 'none';
                 currentImage = 2;
-            } else if (currentImage === 2) {
+            } 
+            // Show image 2 next
+            else if (currentImage === 2) {
                 img1.style.display = 'none';
                 img2.style.display = 'block';
                 img3.style.display = 'none';
                 currentImage = 3;
-            } else if (currentImage === 3) {
+            } 
+            // Show image 3 next
+            else if (currentImage === 3) {
                 img1.style.display = 'none';
                 img2.style.display = 'none';
                 img3.style.display = 'block';
-                currentImage = 2; // Back to image 2 to repeat the sequence
+                currentImage = 1; // Reset back to image 1 after image 3
             }
         }
 
@@ -90,3 +95,4 @@
     </script>
 </body>
 </html>
+
