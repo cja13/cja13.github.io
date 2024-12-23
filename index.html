@@ -12,13 +12,17 @@
             overflow: hidden; /* Prevent scrollbars */
         }
 
+        a {
+            text-decoration: none;
+        }
+
         .image-container {
             position: absolute; /* Absolute positioning for precise placement */
-            top: 2; /* Align the container to the top of the screen */
+            top: 4; /* Align the container to the top of the screen */
             left: 50%; /* Center it horizontally */
             transform: translateX(-50%); /* Adjust for horizontal centering */
             display: flex;
-            animation: moveToSides 10s infinite; /* Animation for movement */
+            animation: moveToSides 13s infinite; /* Animation for movement */
         }
 
         #image1, #image2, #image3 {
@@ -51,11 +55,13 @@
     </style>
 </head>
 <body>
-    <div class="image-container">
-        <img id="image1" src="images/bird (1).png" alt="Image 1">
-        <img id="image2" src="images/bird2 (1) (1).png" alt="Image 2">
-        <img id="image3" src="images/bird3 (1).png" alt="Image 3">
-    </div>
+    <a href="about-me.html">
+        <div class="image-container">
+            <img id="image1" src="images/bird (1).png" alt="Image 1">
+            <img id="image2" src="images/bird2 (1) (1).png" alt="Image 2">
+            <img id="image3" src="images/bird3 (1).png" alt="Image 3">
+        </div>
+    </a>
 
     <script>
         // JavaScript to alternate the images
@@ -86,7 +92,7 @@
         }
 
         // Start alternating images every 300ms (0.3 seconds)
-        setInterval(alternateImages, 300);
+        setInterval(alternateImages, 400);
     </script>
 </body>
 </html>
