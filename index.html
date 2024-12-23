@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bird</title>
+    <title>Image Alternating Animation</title>
     <style>
         body {
             margin: 0;
@@ -58,41 +58,32 @@
     </div>
 
     <script>
-        // JavaScript to alternate the images in the order: 1, 2, 3, 2, 1, etc.
+        // JavaScript to alternate the images in the order: 2, 1, 2, 3, 2, 1, 2, 3, etc.
         const img1 = document.getElementById('image1');
         const img2 = document.getElementById('image2');
         const img3 = document.getElementById('image3');
         
-        let currentImage = 1;
+        let currentImage = 2;
 
-        // Function to alternate the images in the order 1, 2, 3, 2, 1, etc.
+        // Function to alternate the images in the order: 2, 1, 2, 3, 2, 1, 2, 3, etc.
         function alternateImages() {
-            // Show image 1 first
-            if (currentImage === 1) {
+            if (currentImage === 2) {
+                img1.style.display = 'none';
+                img2.style.display = 'block';
+                img3.style.display = 'none';
+                currentImage = 1;
+            } 
+            else if (currentImage === 1) {
                 img1.style.display = 'block';
                 img2.style.display = 'none';
                 img3.style.display = 'none';
                 currentImage = 2;
             } 
-            // Show image 2 next
-            else if (currentImage === 2) {
-                img1.style.display = 'none';
-                img2.style.display = 'block';
-                img3.style.display = 'none';
-                currentImage = 3;
-            } 
-            // Show image 3 next
             else if (currentImage === 3) {
                 img1.style.display = 'none';
                 img2.style.display = 'none';
                 img3.style.display = 'block';
-                currentImage = 2; // After image 3, go back to image 2
-            }
-            else if (currentImage === 2) {
-                img1.style.display = 'none';
-                img2.style.display = 'block';
-                img3.style.display = 'none';
-                currentImage = 1;
+                currentImage = 2;
             }
         }
 
@@ -101,7 +92,5 @@
     </script>
 </body>
 </html>
-
-
 
 
