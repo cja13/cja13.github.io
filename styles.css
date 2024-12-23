@@ -10,22 +10,32 @@ body {
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  animation: walk-cycle 0.5s steps(2) infinite, walk-across 10s linear infinite;
+  animation: walk-across 10s linear infinite; /* Move the bird across the screen */
 }
 
 #bird img {
   width: 100px; /* Adjust size as needed */
-  display: block;
+  position: absolute; /* Overlap both images */
+  animation: alternate-frames 0.5s steps(1) infinite; /* Alternate between images */
 }
 
-@keyframes walk-cycle {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+#bird img:nth-child(1) {
+  z-index: 1;
 }
 
+#bird img:nth-child(2) {
+  z-index: 0;
+}
+
+/* Animation for moving across the screen */
 @keyframes walk-across {
   0% { left: -100px; }
   100% { left: 100vw; }
 }
 
+/* Animation for alternating images */
+@keyframes alternate-frames {
+  0%, 50% { opacity: 1; } /* Show the first image for half the cycle */
+  51%, 100% { opacity: 0; } /* Show the second image for the other half */
+}
 
