@@ -42,15 +42,15 @@
                 transform: translateX(50vw); /* Move to the right */
             }
             100% {
-                transform: translateX(0); /* Return to the center */
+                transform: translateX(50vw) rotateY(180deg); /* Rotate when it reaches the right edge */
             }
         }
     </style>
 </head>
 <body>
     <div class="image-container">
-        <img id="image1" src="images/bird (1).png" alt="Image 1">
-        <img id="image2" src="images/bird2 (1) (1).png" alt="Image 2">
+        <img id="image1" src="image1.jpg" alt="Image 1">
+        <img id="image2" src="image2.jpg" alt="Image 2">
     </div>
 
     <script>
