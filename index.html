@@ -3,35 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>birdr</title>
+    <title>Rotating Images Animation</title>
     <style>
         body {
             margin: 0;
+            height: 100vh; /* Full viewport height */
+            background-color: #f0f0f0;
             display: flex;
-            justify-content: center; /* Centers horizontally */
-            align-items: center;    /* Centers vertically */
-            height: 100vh;          /* Full viewport height */
-            background-color: #f0f0f0; /* Optional background color */
+            align-items: center; /* Vertically center the animation */
+            overflow: hidden; /* Prevent scrollbars */
+        }
+
+        .image-container {
+            position: relative;
+            display: flex;
+            animation: moveAndRotate 2s infinite alternate; /* Animation for movement and rotation */
         }
 
         #image1, #image2 {
             position: absolute;
-            width: 300px; /* Set your desired width */
+            width: 300px; /* Adjust the width of the images */
             height: auto;
-            display: none; /* Both images are initially hidden */
+            backface-visibility: hidden; /* Ensure the back of the image is hidden during rotation */
         }
 
-        #image1 {
-            display: block; /* Start by showing image1 */
+        #image2 {
+            display: none; /* Start with image2 hidden */
+        }
+
+        @keyframes moveAndRotate {
+            0% {
+                transform: translateX(0) rotateY(0deg); /* Start on the left, no rotation */
+            }
+            50% {
+                transform: translateX(50vw) rotateY(90deg); /* Halfway, rotate partially */
+            }
+            100% {
+                transform: translateX(100vw) rotateY(180deg); /* Fully moved and rotated */
+            }
         }
     </style>
 </head>
 <body>
-    <img id="image1" src="images/bird (1).png" alt="Image 1">
-    <img id="image2" src="images/bird2 (1) (1).png" alt="Image 2">
+    <div class="image-container">
+        <img id="image1" src="images/bird (1).png" alt="Image 1">
+        <img id="image2" src="images/bird2 (1) (1).png" alt="Image 2">
+    </div>
 
     <script>
-        // JavaScript to toggle the images
+        // JavaScript to alternate the images
         const img1 = document.getElementById('image1');
         const img2 = document.getElementById('image2');
         
@@ -50,5 +70,6 @@
     </script>
 </body>
 </html>
+
 
 
