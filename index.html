@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bord</title>
+    <title>Image Alternating Animation</title>
     <style>
         body {
             margin: 0;
             height: 100vh; /* Full viewport height */
             background-color: #f0f0f0;
-            display: flex;
-            align-items: center; /* Vertically center the animation */
-            justify-content: center; /* Start centered horizontally */
             overflow: hidden; /* Prevent scrollbars */
         }
 
         .image-container {
-            position: relative;
+            position: absolute; /* Absolute positioning */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Fully center the container */
             display: flex;
             animation: moveToSides 10s infinite; /* Animation for movement */
-            transform: translateY(-50%); /* Ensure vertical centering within the viewport */
         }
 
         #image1, #image2 {
@@ -50,8 +49,8 @@
 </head>
 <body>
     <div class="image-container">
-        <img id="image1" src="images/bird (1).png" alt="Image 1">
-        <img id="image2" src="images/bird2 (1) (1).png" alt="Image 2">
+        <img id="image1" src="image1.jpg" alt="Image 1">
+        <img id="image2" src="image2.jpg" alt="Image 2">
     </div>
 
     <script>
@@ -76,4 +75,3 @@
     </script>
 </body>
 </html>
-
