@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bord</title>
+    <title>Image Alternating Animation</title>
     <style>
         body {
             margin: 0;
@@ -18,10 +18,10 @@
             left: 50%; /* Center it horizontally */
             transform: translateX(-50%); /* Adjust for horizontal centering */
             display: flex;
-            animation: moveToSides 15s infinite; /* Animation for movement */
+            animation: moveToSides 10s infinite; /* Animation for movement */
         }
 
-        #image1, #image2, #image3 {
+        #image1, #image2 {
             position: absolute;
             width: 300px; /* Adjust the width of the images */
             height: auto;
@@ -32,20 +32,17 @@
             0% {
                 transform: translateX(0); /* Start at the center */
             }
-            20% {
+            25% {
                 transform: translateX(-50vw); /* Move to the left */
             }
-            40% {
+            50% {
                 transform: translateX(-50vw) rotateY(180deg); /* Rotate at the left edge */
             }
-            60% {
+            75% {
                 transform: translateX(0) rotateY(180deg); /* Rotate back and move to the right */
             }
-            80% {
-                transform: translateX(50vw) rotateY(180deg); /* Rotate at the right edge */
-            }
             100% {
-                transform: translateX(50vw); /* Return to the center */
+                transform: translateX(50vw) rotateY(180deg); /* Rotate at the right edge */
             }
         }
     </style>
@@ -53,41 +50,27 @@
 <body>
     <div class="image-container">
         <img id="image1" src="images/bird (1).png" alt="Image 1">
-        <img id="image2" src="images/bird2 (1) (1).png" alt="Image 2">
-        <img id="image3" src="images/bird3 (1).png" alt="Image 3">
+        <img id="image2" src="images/bird3 (1).png" alt="Image 2">
     </div>
 
     <script>
         // JavaScript to alternate the images
         const img1 = document.getElementById('image1');
         const img2 = document.getElementById('image2');
-        const img3 = document.getElementById('image3');
         
-        let currentImage = 1;
+        let showFirst = true;
 
-        // Function to alternate the images
-        function alternateImages() {
-            if (currentImage === 1) {
+        // Alternate images during movement
+        setInterval(() => {
+            if (showFirst) {
                 img1.style.display = 'block';
                 img2.style.display = 'none';
-                img3.style.display = 'none';
-                currentImage = 2;
-            } else if (currentImage === 2) {
+            } else {
                 img1.style.display = 'none';
                 img2.style.display = 'block';
-                img3.style.display = 'none';
-                currentImage = 3;
-            } else if (currentImage === 3) {
-                img1.style.display = 'none';
-                img2.style.display = 'none';
-                img3.style.display = 'block';
-                currentImage = 1;
             }
-        }
-
-        // Start alternating images every 500ms (0.5 seconds)
-        setInterval(alternateImages, 500);
+            showFirst = !showFirst;
+        }, 500); // Switch every 500 milliseconds (0.5 seconds)
     </script>
 </body>
 </html>
-
