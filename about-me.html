@@ -9,41 +9,58 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: flex-end; /* Align images to the right */
+            align-items: center; /* Align images vertically */
             height: 100vh; /* Full viewport height */
-            background-color: transparent; /* No background color */
+            background-color: transparent; /* No background */
         }
 
-        .floating-image-container {
-            position: relative;
-            width: 200px; /* Adjust width as needed */
-            height: auto;
-            animation: float 3s ease-in-out infinite; /* Floating animation */
-        }
-
-        .floating-image-container img {
-            width: 100%;
+        .floating-image {
+            position: absolute; /* Absolute positioning for custom placement */
+            width: 150px; /* Smaller image size */
             height: auto;
         }
 
-        @keyframes float {
+        .image1 {
+            right: 10px; /* Position in the right corner */
+            top: 30%; /* Slightly below the top of the screen */
+            animation: float1 3s ease-in-out infinite;
+        }
+
+        .image2 {
+            right: 170px; /* Offset slightly to the left of the first image */
+            top: 50%; /* Lower on the screen */
+            animation: float2 4s ease-in-out infinite; /* Slightly slower animation */
+        }
+
+        @keyframes float1 {
             0% {
-                transform: translateY(0); /* Starting position */
+                transform: translateY(0);
             }
             50% {
-                transform: translateY(-20px); /* Move up slightly */
+                transform: translateY(-15px); /* Slightly smaller bobbing motion */
             }
             100% {
-                transform: translateY(0); /* Back to the starting position */
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float2 {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-25px); /* Larger bobbing motion */
+            }
+            100% {
+                transform: translateY(0);
             }
         }
     </style>
 </head>
 <body>
-    <div class="floating-image-container">
-        <img src="images/jason (1).png" alt="Floating Image">
-    </div>
+    <img src="images/jason (1).png" alt="Floating Image 1" class="floating-image image1">
+    <img src="images/hexxed (1).png" alt="Floating Image 2" class="floating-image image2">
 </body>
 </html>
 
