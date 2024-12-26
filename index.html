@@ -12,10 +12,6 @@
             overflow: hidden; /* Prevent scrollbars */
         }
 
-        a {
-            text-decoration: none; /* Remove underline on the link */
-        }
-
         .image-container {
             position: absolute; /* Absolute positioning for precise placement */
             top: 0; /* Align the container to the top of the screen */
@@ -55,42 +51,42 @@
     </style>
 </head>
 <body>
-    <!-- The link wraps the entire image container -->
-    <a href="about-me.html">
-        <div class="image-container">
-            <img id="image1" src="images/bird (1).png" alt="Image 1" style="display:none;">
-            <img id="image2" src="images/bird2 (1) (1).png" alt="Image 2" style="display:none;">
-            <img id="image3" src="images/bird3 (1).png" alt="Image 3" style="display:none;">
-        </div>
-    </a>
+    <div class="image-container">
+        <img id="image1" src="images/bird (1).png" alt="Image 1">
+        <img id="image2" src="images/bird2 (1) (1).png" alt="Image 2">
+        <img id="image3" src="images/bird3 (1).png" alt="Image 3">
+    </div>
 
     <script>
-        // Get references to the images
+        // JavaScript to alternate the images in the order: 1, 2, 3, 2, 1, etc.
         const img1 = document.getElementById('image1');
         const img2 = document.getElementById('image2');
         const img3 = document.getElementById('image3');
         
-        let currentImage = 2;
+        let currentImage = 1;
 
-        // Function to alternate the images in the order: 2, 1, 2, 3, 2, 1, 2, 3, etc.
+        // Function to alternate the images in the order 1, 2, 3, 2, 1, etc.
         function alternateImages() {
-            if (currentImage === 2) {
-                img1.style.display = 'none';
-                img2.style.display = 'block';
-                img3.style.display = 'none';
-                currentImage = 1;
-            } 
-            else if (currentImage === 1) {
+            // Show image 1 first
+            if (currentImage === 1) {
                 img1.style.display = 'block';
                 img2.style.display = 'none';
                 img3.style.display = 'none';
                 currentImage = 2;
             } 
+            // Show image 2 next
+            else if (currentImage === 2) {
+                img1.style.display = 'none';
+                img2.style.display = 'block';
+                img3.style.display = 'none';
+                currentImage = 3;
+            } 
+            // Show image 3 next
             else if (currentImage === 3) {
                 img1.style.display = 'none';
                 img2.style.display = 'none';
                 img3.style.display = 'block';
-                currentImage = 2;
+                currentImage = 1; // Reset back to image 1 after image 3
             }
         }
 
@@ -99,4 +95,3 @@
     </script>
 </body>
 </html>
-
