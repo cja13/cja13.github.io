@@ -9,10 +9,11 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
             height: 100vh; /* Full viewport height */
             background-color: transparent; /* No background */
+            position: relative; /* Establish a containing context for the overlay */
         }
 
         .floating-image {
@@ -23,14 +24,24 @@
 
         .image1 {
             right: 50%; /* Positioned closer to the center */
-            top: 20%; /* Slightly below the vertical center */
+            top: 40%; /* Slightly below the vertical center */
             animation: float1 3s ease-in-out infinite;
         }
 
         .image2 {
             right: 42%; /* Offset slightly to the left of the first image */
-            top: 45%; /* Lower than the first image */
+            top: 55%; /* Lower than the first image */
             animation: float2 4s ease-in-out infinite; /* Slightly slower animation */
+        }
+
+        .static-overlay {
+            position: absolute; /* Overlay position */
+            z-index: 10; /* Ensure it's on top */
+            width: 500px; /* Larger size for the overlay */
+            height: auto;
+            top: 50%; /* Vertically center */
+            left: 50%; /* Horizontally center */
+            transform: translate(-50%, -50%); /* Adjust for true centering */
         }
 
         @keyframes float1 {
@@ -61,5 +72,8 @@
 <body>
     <img src="images/jason (1).png" alt="Floating Image 1" class="floating-image image1">
     <img src="images/hexxed (1).png" alt="Floating Image 2" class="floating-image image2">
+    <!-- Static overlay image -->
+    <img src="images/jar (1).png" alt="Static Overlay Image" class="static-overlay">
 </body>
 </html>
+
