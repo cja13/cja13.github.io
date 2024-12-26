@@ -20,6 +20,7 @@
             position: absolute; /* Absolute positioning for precise placement */
             width: 150px; /* Smaller image size */
             height: auto;
+            z-index: 2;
         }
 
         .image1 {
@@ -36,7 +37,7 @@
 
         .static-overlay {
             position: absolute; /* Overlay position */
-            z-index: 10; /* Ensure it's on top */
+            z-index: 1; /* Ensure it's on top */
             width: 500px; /* Larger size for the overlay */
             height: auto;
             top: 50%; /* Vertically center */
