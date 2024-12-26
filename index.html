@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bleep</title>
+    <title>About Me</title>
     <style>
         body {
             margin: 0;
@@ -31,7 +31,7 @@
         .image2 {
             right: 42%; /* Offset slightly to the left of the first image */
             top: 55%; /* Lower than the first image */
-            animation: float2 4s ease-in-out infinite;
+            animation: float2 4s ease-in-out infinite; /* Slightly slower animation */
         }
 
         .static-overlay {
@@ -39,6 +39,9 @@
             z-index: 10; /* Ensure it's on top */
             width: 500px; /* Larger size for the overlay */
             height: auto;
+            top: 50%; /* Vertically center */
+            left: 50%; /* Horizontally center */
+            transform: translate(-50%, -50%); /* Adjust for true centering */
         }
 
         @keyframes float1 {
@@ -73,5 +76,4 @@
     <img src="images/jar (1).png" alt="Static Overlay Image" class="static-overlay">
 </body>
 </html>
-
 
