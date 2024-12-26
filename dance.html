@@ -6,81 +6,78 @@
   <title>dance</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      background-color: #f4f4f4;
+      min-height: 100vh;
     }
+
     .container {
-      position: relative;
-      width: 90%;
-      max-width: 1200px;
+      width: 80%;
+      max-width: 800px;
     }
+
     .thumbnail {
-      position: absolute;
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
       cursor: pointer;
-      text-align: center;
-      transition: transform 0.3s ease;
     }
+
+    /* Stagger thumbnails to the left and right */
+    .thumbnail:nth-child(odd) {
+      flex-direction: row; /* Default (image on the left) */
+      justify-content: flex-start;
+    }
+
+    .thumbnail:nth-child(even) {
+      flex-direction: row-reverse; /* Reverse (image on the right) */
+      justify-content: flex-end;
+    }
+
     .thumbnail img {
       width: 200px;
       height: auto;
       border-radius: 10px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
     }
-    .thumbnail img:hover {
-      transform: scale(1.1);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
+
     .thumbnail p {
-      margin-top: 10px;
+      margin: 0 20px;
       font-size: 16px;
       color: #333;
-    }
-    .thumbnail:nth-child(1) {
-      top: 10%;
-      left: 20%;
-    }
-    .thumbnail:nth-child(2) {
-      top: 30%;
-      left: 60%;
-    }
-    .thumbnail:nth-child(3) {
-      top: 60%;
-      left: 30%;
-    }
-    .thumbnail:nth-child(4) {
-      top: 50%;
-      left: 70%;
+      text-align: center;
+      max-width: 300px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Dance 1 -->
     <div class="thumbnail" onclick="window.open('https://www.youtube.com/watch?v=Yo3y5oAD_io', '_blank')">
       <img src="https://img.youtube.com/vi/Yo3y5oAD_io/0.jpg" alt="Dance 1 Thumbnail">
-      <p>Dance 1: Description or Title</p>
+      <p>Dance 1: A short description of the dance.</p>
     </div>
-    <!-- Dance 2 -->
+
     <div class="thumbnail" onclick="window.open('https://www.youtube.com/watch?v=VIDEO_ID_2', '_blank')">
       <img src="https://img.youtube.com/vi/VIDEO_ID_2/0.jpg" alt="Dance 2 Thumbnail">
-      <p>Dance 2: Description or Title</p>
+      <p>Dance 2: A short description of the dance.</p>
     </div>
-    <!-- Dance 3 -->
+
     <div class="thumbnail" onclick="window.open('https://www.youtube.com/watch?v=VIDEO_ID_3', '_blank')">
       <img src="https://img.youtube.com/vi/VIDEO_ID_3/0.jpg" alt="Dance 3 Thumbnail">
-      <p>Dance 3: Description or Title</p>
+      <p>Dance 3: A short description of the dance.</p>
     </div>
-    <!-- Dance 4 -->
+
     <div class="thumbnail" onclick="window.open('https://www.youtube.com/watch?v=VIDEO_ID_4', '_blank')">
       <img src="https://img.youtube.com/vi/VIDEO_ID_4/0.jpg" alt="Dance 4 Thumbnail">
-      <p>Dance 4: Description or Title</p>
+      <p>Dance 4: A short description of the dance.</p>
     </div>
   </div>
 </body>
 </html>
+
 
