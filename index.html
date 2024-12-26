@@ -3,97 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bord</title>
+    <title>bleep</title>
     <style>
         body {
             margin: 0;
-            height: 100vh; /* Full viewport height */
-            background-color: #f0f0f0;
-            overflow: hidden; /* Prevent scrollbars */
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        .image-container {
-            position: absolute; /* Absolute positioning for precise placement */
-            top: 4; /* Align the container to the top of the screen */
-            left: 50%; /* Center it horizontally */
-            transform: translateX(-50%); /* Adjust for horizontal centering */
+            padding: 0;
             display: flex;
-            animation: moveToSides 13s infinite; /* Animation for movement */
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            height: 100vh; /* Full viewport height */
+            background-color: transparent; /* No background */
+            position: relative; /* Establish a containing context for the overlay */
         }
 
-        #image1, #image2, #image3 {
-            position: absolute;
-            width: 300px; /* Adjust the width of the images */
+        .floating-image {
+            position: absolute; /* Absolute positioning for precise placement */
+            width: 150px; /* Smaller image size */
             height: auto;
-            backface-visibility: hidden; /* Ensure the back of the image is hidden during rotation */
         }
 
-        @keyframes moveToSides {
+        .image1 {
+            right: 50%; /* Positioned closer to the center */
+            top: 40%; /* Slightly below the vertical center */
+            animation: float1 3s ease-in-out infinite;
+        }
+
+        .image2 {
+            right: 42%; /* Offset slightly to the left of the first image */
+            top: 55%; /* Lower than the first image */
+            animation: float2 4s ease-in-out infinite;
+        }
+
+        .static-overlay {
+            position: absolute; /* Overlay position */
+            z-index: 10; /* Ensure it's on top */
+            width: 500px; /* Larger size for the overlay */
+            height: auto;
+        }
+
+        @keyframes float1 {
             0% {
-                transform: translateX(0); /* Start at the center */
-            }
-            15% {
-                transform: translateX(-50vw); /* Move to the left */
-            }
-            20% {
-                transform: translateX(-50vw) rotateY(180deg); /* Rotate at the left edge */
+                transform: translateY(0);
             }
             50% {
-                transform: translateX(0) rotateY(180deg); /* Rotate back and move to the right */
+                transform: translateY(-15px); /* Slightly smaller bobbing motion */
             }
-            65% {
-                transform: translateX(50vw) rotateY(180deg); /* Rotate at the right edge */
+            100% {
+                transform: translateY(0);
             }
-            80% {
-                transform: translateX(50vw); /* Return to the center */
+        }
+
+        @keyframes float2 {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-25px); /* Larger bobbing motion */
+            }
+            100% {
+                transform: translateY(0);
             }
         }
     </style>
 </head>
 <body>
-    <a href="about-me.html">
-        <div class="image-container">
-            <img id="image1" src="images/bird (1).png" alt="Image 1">
-            <img id="image2" src="images/bird2 (1) (1).png" alt="Image 2">
-            <img id="image3" src="images/bird3 (1).png" alt="Image 3">
-        </div>
-    </a>
-
-    <script>
-        // JavaScript to alternate the images
-        const img1 = document.getElementById('image1');
-        const img2 = document.getElementById('image2');
-        const img3 = document.getElementById('image3');
-        
-        let currentImage = 1;
-
-        // Function to alternate the images
-        function alternateImages() {
-            if (currentImage === 1) {
-                img1.style.display = 'block';
-                img2.style.display = 'none';
-                img3.style.display = 'none';
-                currentImage = 2;
-            } else if (currentImage === 2) {
-                img1.style.display = 'none';
-                img2.style.display = 'block';
-                img3.style.display = 'none';
-                currentImage = 3;
-            } else if (currentImage === 3) {
-                img1.style.display = 'none';
-                img2.style.display = 'none';
-                img3.style.display = 'block';
-                currentImage = 1;
-            }
-        }
-
-        // Start alternating images every 300ms (0.3 seconds)
-        setInterval(alternateImages, 400);
-    </script>
+    <img src="images/jason (1).png" alt="Floating Image 1" class="floating-image image1">
+    <img src="images/hexxed (1).png" alt="Floating Image 2" class="floating-image image2">
+    <!-- Static overlay image -->
+    <img src="images/jar (1).png" alt="Static Overlay Image" class="static-overlay">
 </body>
 </html>
 
