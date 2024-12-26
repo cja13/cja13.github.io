@@ -53,31 +53,88 @@
       text-align: center;
       max-width: 300px;
     }
+
+    /* Styling for modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal iframe {
+      width: 80%;
+      height: 450px;
+      max-width: 800px;
+      border: none;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="thumbnail" onclick="window.open('https://www.youtube.com/watch?v=Yo3y5oAD_io', '_blank')">
+    <div class="thumbnail" onclick="openModal('Yo3y5oAD_io')">
       <img src="https://img.youtube.com/vi/Yo3y5oAD_io/0.jpg" alt="Dance 1 Thumbnail">
       <p>Dance 1: A short description of the dance.</p>
     </div>
 
-    <div class="thumbnail" onclick="window.open('https://www.youtube.com/watch?v=VIDEO_ID_2', '_blank')">
+    <div class="thumbnail" onclick="openModal('VIDEO_ID_2')">
       <img src="https://img.youtube.com/vi/VIDEO_ID_2/0.jpg" alt="Dance 2 Thumbnail">
       <p>Dance 2: A short description of the dance.</p>
     </div>
 
-    <div class="thumbnail" onclick="window.open('https://www.youtube.com/watch?v=VIDEO_ID_3', '_blank')">
+    <div class="thumbnail" onclick="openModal('VIDEO_ID_3')">
       <img src="https://img.youtube.com/vi/VIDEO_ID_3/0.jpg" alt="Dance 3 Thumbnail">
       <p>Dance 3: A short description of the dance.</p>
     </div>
 
-    <div class="thumbnail" onclick="window.open('https://www.youtube.com/watch?v=VIDEO_ID_4', '_blank')">
+    <div class="thumbnail" onclick="openModal('VIDEO_ID_4')">
       <img src="https://img.youtube.com/vi/VIDEO_ID_4/0.jpg" alt="Dance 4 Thumbnail">
       <p>Dance 4: A short description of the dance.</p>
     </div>
   </div>
+
+  <!-- Modal for YouTube Video -->
+  <div class="modal" id="videoModal">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <iframe id="videoFrame" src="" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    function openModal(videoId) {
+      const modal = document.getElementById('videoModal');
+      const iframe = document.getElementById('videoFrame');
+      iframe.src = `https://www.youtube.com/embed/${videoId}`;
+      modal.classList.add('active');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('videoModal');
+      const iframe = document.getElementById('videoFrame');
+      iframe.src = ''; // Stop video playback
+      modal.classList.remove('active');
+    }
+  </script>
 </body>
 </html>
+
 
 
