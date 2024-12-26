@@ -9,27 +9,27 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: flex-end; /* Align images to the right */
-            align-items: center; /* Align images vertically */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
             height: 100vh; /* Full viewport height */
             background-color: transparent; /* No background */
         }
 
         .floating-image {
-            position: absolute; /* Absolute positioning for custom placement */
+            position: absolute; /* Absolute positioning for precise placement */
             width: 150px; /* Smaller image size */
             height: auto;
         }
 
         .image1 {
-            right: 10px; /* Position in the right corner */
-            top: 30%; /* Slightly below the top of the screen */
+            right: 50%; /* Positioned closer to the center */
+            top: 40%; /* Slightly below the vertical center */
             animation: float1 3s ease-in-out infinite;
         }
 
         .image2 {
-            right: 170px; /* Offset slightly to the left of the first image */
-            top: 50%; /* Lower on the screen */
+            right: 42%; /* Offset slightly to the left of the first image */
+            top: 55%; /* Lower than the first image */
             animation: float2 4s ease-in-out infinite; /* Slightly slower animation */
         }
 
@@ -60,7 +60,6 @@
 </head>
 <body>
     <img src="images/jason (1).png" alt="Floating Image 1" class="floating-image image1">
-    <img src="images/hexxed (1).png" alt="Floating Image 2" class="floating-image image2">
+    <img src="images/ hexxed(1).png" alt="Floating Image 2" class="floating-image image2">
 </body>
 </html>
-
