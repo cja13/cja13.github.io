@@ -21,6 +21,7 @@
             transition: transform 0.3s ease;
         }
 
+        /* Define unique animations for each thumbnail */
         @keyframes bounce1 {
             0% { transform: translate(10vw, 10vh); }
             25% { transform: translate(70vw, 20vh); }
@@ -53,6 +54,7 @@
             100% { transform: translate(20vw, 10vh); }
         }
 
+        /* Assign unique animations to each thumbnail */
         #thumbnail1 {
             animation: bounce1 12s infinite alternate ease-in-out;
         }
@@ -68,15 +70,14 @@
         #thumbnail4 {
             animation: bounce4 18s infinite alternate ease-in-out;
         }
-        
     </style>
 </head>
 <body>
     <!-- Thumbnails -->
-    <img class="thumbnail1" src="https://img.youtube.com/vi/Yo3y5oAD_io/hqdefault.jpg" alt="Video 1" onclick="playVideo('Yo3y5oAD_io')">
-    <img class="thumbnail2" src="https://img.youtube.com/vi/PdRUuCeTBbo/hqdefault.jpg" alt="Video 2" onclick="playVideo('PdRUuCeTBbo')">
-    <img class="thumbnail3" src="https://img.youtube.com/vi/YOUR_VIDEO_ID_3/hqdefault.jpg" alt="Video 3" onclick="playVideo('YOUR_VIDEO_ID_3')">
-    <img class="thumbnail4" src="https://img.youtube.com/vi/YOUR_VIDEO_ID_4/hqdefault.jpg" alt="Video 4" onclick="playVideo('YOUR_VIDEO_ID_4')">
+    <img id="thumbnail1" class="thumbnail" src="https://img.youtube.com/vi/PdRUuCeTBbo/hqdefault.jpg" alt="Video 1" onclick="playVideo('PdRUuCeTBbo')">
+    <img id="thumbnail2" class="thumbnail" src="https://img.youtube.com/vi/Yo3y5oAD_io/hqdefault.jpg" alt="Video 2" onclick="playVideo('Yo3y5oAD_io')">
+    <img id="thumbnail3" class="thumbnail" src="https://img.youtube.com/vi/9bZkp7q19f0/hqdefault.jpg" alt="Video 3" onclick="playVideo('9bZkp7q19f0')">
+    <img id="thumbnail4" class="thumbnail" src="https://img.youtube.com/vi/2Vv-BfVoq4g/hqdefault.jpg" alt="Video 4" onclick="playVideo('2Vv-BfVoq4g')">
 
     <!-- JavaScript -->
     <script>
@@ -87,4 +88,3 @@
     </script>
 </body>
 </html>
-
