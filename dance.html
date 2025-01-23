@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dance</title>
+    <title>Bouncing Thumbnails</title>
     <style>
         body {
             margin: 0;
@@ -15,11 +15,10 @@
 
         .thumbnail {
             position: absolute;
-            width: 300px; /* Adjust the thumbnail size */
+            width: 150px; /* Adjust the thumbnail size */
             height: auto; /* Maintain aspect ratio */
             cursor: pointer;
             transition: transform 0.3s ease;
-            animation: bounce 5s infinite alternate ease-in-out;
         }
 
         @keyframes bounce {
@@ -43,7 +42,7 @@
 </head>
 <body>
     <!-- Thumbnails -->
-    <img class="thumbnail" src="https://img.youtube.com/vi/Yo3y5oAD_io/hqdefault.jpg" alt="Video 1" onclick="playVideo('Yo3y5oAD_io')">
+    <img class="thumbnail" src="https://img.youtube.com/vi/'Yo3y5oAD_io'/hqdefault.jpg" alt="Video 1" onclick="playVideo(''Yo3y5oAD_io'')">
     <img class="thumbnail" src="https://img.youtube.com/vi/YOUR_VIDEO_ID_2/hqdefault.jpg" alt="Video 2" onclick="playVideo('YOUR_VIDEO_ID_2')">
     <img class="thumbnail" src="https://img.youtube.com/vi/YOUR_VIDEO_ID_3/hqdefault.jpg" alt="Video 3" onclick="playVideo('YOUR_VIDEO_ID_3')">
     <img class="thumbnail" src="https://img.youtube.com/vi/YOUR_VIDEO_ID_4/hqdefault.jpg" alt="Video 4" onclick="playVideo('YOUR_VIDEO_ID_4')">
@@ -55,22 +54,23 @@
             window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
         }
 
-        // Dynamically position each thumbnail at random spots
+        // Dynamically position and animate each thumbnail
         const thumbnails = document.querySelectorAll('.thumbnail');
 
-        thumbnails.forEach(thumbnail => {
-            // Start with a random position
-            const randomX = Math.random() * (window.innerWidth - thumbnail.width);
-            const randomY = Math.random() * (window.innerHeight - thumbnail.height);
-            thumbnail.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        thumbnails.forEach((thumbnail, index) => {
+            // Start each thumbnail at a random position
+            const startX = Math.random() * (window.innerWidth - thumbnail.width);
+            const startY = Math.random() * (window.innerHeight - thumbnail.height);
+            thumbnail.style.transform = `translate(${startX}px, ${startY}px)`;
 
-            // Add random movement
-            thumbnail.addEventListener('animationiteration', () => {
-                const newRandomX = Math.random() * (window.innerWidth - thumbnail.width);
-                const newRandomY = Math.random() * (window.innerHeight - thumbnail.height);
-                thumbnail.style.transform = `translate(${newRandomX}px, ${newRandomY}px)`;
-            });
+            // Apply a unique animation for each thumbnail
+            const duration = 5 + Math.random() * 3; // Random duration between 5s and 8s
+            thumbnail.style.animation = `bounce ${duration}s infinite alternate ease-in-out`;
+
+            // Adjust each thumbnail's keyframes slightly to avoid perfect alignment
+            thumbnail.style.animationDelay = `${index * 0.5}s`;
         });
     </script>
 </body>
 </html>
+
