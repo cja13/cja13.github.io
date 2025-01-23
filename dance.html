@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bouncing Thumbnails</title>
+    <title>dance</title>
     <style>
         body {
             margin: 0;
@@ -21,31 +21,62 @@
             transition: transform 0.3s ease;
         }
 
-        @keyframes bounce {
-            0% {
-                transform: translate(0, 0);
-            }
-            25% {
-                transform: translate(60vw, 15vh);
-            }
-            50% {
-                transform: translate(30vw, 75vh);
-            }
-            75% {
-                transform: translate(10vw, 45vh);
-            }
-            100% {
-                transform: translate(90vw, 85vh);
-            }
+        @keyframes bounce1 {
+            0% { transform: translate(10vw, 10vh); }
+            25% { transform: translate(70vw, 20vh); }
+            50% { transform: translate(30vw, 50vh); }
+            75% { transform: translate(90vw, 70vh); }
+            100% { transform: translate(10vw, 90vh); }
         }
+
+        @keyframes bounce2 {
+            0% { transform: translate(80vw, 80vh); }
+            25% { transform: translate(20vw, 70vh); }
+            50% { transform: translate(40vw, 40vh); }
+            75% { transform: translate(60vw, 20vh); }
+            100% { transform: translate(80vw, 10vh); }
+        }
+
+        @keyframes bounce3 {
+            0% { transform: translate(50vw, 50vh); }
+            25% { transform: translate(30vw, 10vh); }
+            50% { transform: translate(70vw, 30vh); }
+            75% { transform: translate(40vw, 70vh); }
+            100% { transform: translate(50vw, 90vh); }
+        }
+
+        @keyframes bounce4 {
+            0% { transform: translate(20vw, 20vh); }
+            25% { transform: translate(60vw, 50vh); }
+            50% { transform: translate(10vw, 70vh); }
+            75% { transform: translate(80vw, 30vh); }
+            100% { transform: translate(20vw, 10vh); }
+        }
+
+        #thumbnail1 {
+            animation: bounce1 12s infinite alternate ease-in-out;
+        }
+
+        #thumbnail2 {
+            animation: bounce2 14s infinite alternate ease-in-out;
+        }
+
+        #thumbnail3 {
+            animation: bounce3 16s infinite alternate ease-in-out;
+        }
+
+        #thumbnail4 {
+            animation: bounce4 18s infinite alternate ease-in-out;
+        }
+        
     </style>
 </head>
 <body>
     <!-- Thumbnails -->
-    <img class="thumbnail" src="https://img.youtube.com/vi/Yo3y5oAD_io/hqdefault.jpg" alt="Video 1" onclick="playVideo('Yo3y5oAD_io')">
-    <img class="thumbnail" src="https://img.youtube.com/vi/PdRUuCeTBbo/hqdefault.jpg" alt="Video 2" onclick="playVideo('PdRUuCeTBbo')">
-    <img class="thumbnail" src="https://img.youtube.com/vi/YOUR_VIDEO_ID_3/hqdefault.jpg" alt="Video 3" onclick="playVideo('YOUR_VIDEO_ID_3')">
-    <img class="thumbnail" src="https://img.youtube.com/vi/YOUR_VIDEO_ID_4/hqdefault.jpg" alt="Video 4" onclick="playVideo('YOUR_VIDEO_ID_4')">
+    <img class="thumbnail1" src="https://img.youtube.com/vi/Yo3y5oAD_io/hqdefault.jpg" alt="Video 1" onclick="playVideo('Yo3y5oAD_io')">
+    <img class="thumbnail2" src="https://img.youtube.com/vi/PdRUuCeTBbo/hqdefault.jpg" alt="Video 2" onclick="playVideo('PdRUuCeTBbo')">
+    <img class="thumbnail3" src="https://img.youtube.com/vi/YOUR_VIDEO_ID_3/hqdefault.jpg" alt="Video 3" onclick="playVideo('YOUR_VIDEO_ID_3')">
+    <img class="thumbnail4" src="https://img.youtube.com/vi/YOUR_VIDEO_ID_4/hqdefault.jpg" alt="Video 4" onclick="playVideo('YOUR_VIDEO_ID_4')">
 
     <!-- JavaScript -->
     <script>
@@ -53,22 +84,7 @@
             // Open the YouTube video in a new tab
             window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
         }
-
-        // Dynamically position and animate each thumbnail
-        const thumbnails = document.querySelectorAll('.thumbnail');
-
-        thumbnails.forEach((thumbnail, index) => {
-            // Start each thumbnail at a random position
-            const startX = Math.random() * (window.innerWidth - thumbnail.width);
-            const startY = Math.random() * (window.innerHeight - thumbnail.height);
-            thumbnail.style.transform = `translate(${startX}px, ${startY}px)`;
-
-            // Apply a unique animation for each thumbnail
-            const duration = 10 + Math.random() * 5; // Random duration between 10s and 15s (slower)
-            thumbnail.style.animation = `bounce ${duration}s infinite alternate ease-in-out`;
-
-            // Adjust each thumbnail's keyframes slightly to avoid perfect alignment
-            thumbnail.style.animationDelay = `${index * 1}s`;
-        });
     </script>
+</body>
+</html>
 
