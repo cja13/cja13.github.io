@@ -26,31 +26,31 @@
                 transform: translate(0, 0);
             }
             25% {
-                transform: translate(70vw, 10vh);
+                transform: translate(60vw, 15vh);
             }
             50% {
-                transform: translate(40vw, 80vh);
+                transform: translate(30vw, 75vh);
             }
             75% {
-                transform: translate(20vw, 40vh);
+                transform: translate(10vw, 45vh);
             }
             100% {
-                transform: translate(90vw, 90vh);
+                transform: translate(90vw, 85vh);
             }
         }
     </style>
 </head>
 <body>
     <!-- Thumbnails -->
-    <img class="thumbnail" src="https://img.youtube.com/vi/'Yo3y5oAD_io'/hqdefault.jpg" alt="Video 1" onclick="playVideo(''Yo3y5oAD_io'')">
-    <img class="thumbnail" src="https://img.youtube.com/vi/YOUR_VIDEO_ID_2/hqdefault.jpg" alt="Video 2" onclick="playVideo('YOUR_VIDEO_ID_2')">
+    <img class="thumbnail" src="https://img.youtube.com/vi/Yo3y5oAD_io/hqdefault.jpg" alt="Video 1" onclick="playVideo('Yo3y5oAD_io')">
+    <img class="thumbnail" src="https://img.youtube.com/vi/PdRUuCeTBbo/hqdefault.jpg" alt="Video 2" onclick="playVideo('PdRUuCeTBbo')">
     <img class="thumbnail" src="https://img.youtube.com/vi/YOUR_VIDEO_ID_3/hqdefault.jpg" alt="Video 3" onclick="playVideo('YOUR_VIDEO_ID_3')">
     <img class="thumbnail" src="https://img.youtube.com/vi/YOUR_VIDEO_ID_4/hqdefault.jpg" alt="Video 4" onclick="playVideo('YOUR_VIDEO_ID_4')">
 
     <!-- JavaScript -->
     <script>
         function playVideo(videoId) {
-            // Open the YouTube video in a new tab or iframe
+            // Open the YouTube video in a new tab
             window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
         }
 
@@ -64,13 +64,11 @@
             thumbnail.style.transform = `translate(${startX}px, ${startY}px)`;
 
             // Apply a unique animation for each thumbnail
-            const duration = 5 + Math.random() * 3; // Random duration between 5s and 8s
+            const duration = 10 + Math.random() * 5; // Random duration between 10s and 15s (slower)
             thumbnail.style.animation = `bounce ${duration}s infinite alternate ease-in-out`;
 
             // Adjust each thumbnail's keyframes slightly to avoid perfect alignment
-            thumbnail.style.animationDelay = `${index * 0.5}s`;
+            thumbnail.style.animationDelay = `${index * 1}s`;
         });
     </script>
-</body>
-</html>
 
