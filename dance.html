@@ -1,140 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>dance</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dance</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            overflow: hidden; /* Prevent scrollbars */
+            position: relative;
+        }
 
-    .container {
-      width: 80%;
-      max-width: 800px;
-    }
+        .thumbnail {
+            position: absolute;
+            width: 300px; /* Adjust the thumbnail size */
+            height: auto; /* Maintain aspect ratio */
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            animation: bounce 5s infinite alternate ease-in-out;
+        }
 
-    .thumbnail {
-      margin: 20px 0;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-    }
-
-    /* Stagger thumbnails to the left and right */
-    .thumbnail:nth-child(odd) {
-      flex-direction: row; /* Default (image on the left) */
-      justify-content: flex-start;
-    }
-
-    .thumbnail:nth-child(even) {
-      flex-direction: row-reverse; /* Reverse (image on the right) */
-      justify-content: flex-end;
-    }
-
-    .thumbnail img {
-      width: 150px;
-      height: auto;
-      border-radius: 0px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-    }
-
-    .thumbnail p {
-      margin: 0 50px;
-      font-size: 16px;
-      color: #333;
-      text-align: center;
-      max-width: 300px;
-    }
-
-    /* Styling for modal */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .modal iframe {
-      width: 80%;
-      height: 450px;
-      max-width: 800px;
-      border: none;
-    }
-
-    .modal.active {
-      display: flex;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 24px;
-      color: white;
-      cursor: pointer;
-    }
-  </style>
+        @keyframes bounce {
+            0% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(70vw, 10vh);
+            }
+            50% {
+                transform: translate(40vw, 80vh);
+            }
+            75% {
+                transform: translate(20vw, 40vh);
+            }
+            100% {
+                transform: translate(90vw, 90vh);
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="thumbnail" onclick="openModal('Yo3y5oAD_io')">
-      <img src="https://img.youtube.com/vi/Yo3y5oAD_io/0.jpg" alt="Dance 1 Thumbnail">
-      <p>mmmwhatchasay</p>
-    </div>
+    <!-- Thumbnails -->
+    <img class="thumbnail" src="https://img.youtube.com/vi/Yo3y5oAD_io/hqdefault.jpg" alt="Video 1" onclick="playVideo('Yo3y5oAD_io')">
+    <img class="thumbnail" src="https://img.youtube.com/vi/YOUR_VIDEO_ID_2/hqdefault.jpg" alt="Video 2" onclick="playVideo('YOUR_VIDEO_ID_2')">
+    <img class="thumbnail" src="https://img.youtube.com/vi/YOUR_VIDEO_ID_3/hqdefault.jpg" alt="Video 3" onclick="playVideo('YOUR_VIDEO_ID_3')">
+    <img class="thumbnail" src="https://img.youtube.com/vi/YOUR_VIDEO_ID_4/hqdefault.jpg" alt="Video 4" onclick="playVideo('YOUR_VIDEO_ID_4')">
 
-    <div class="thumbnail" onclick="openModal('VIDEO_ID_2')">
-      <img src="https://img.youtube.com/vi/VIDEO_ID_2/0.jpg" alt="Dance 2 Thumbnail">
-      <p>To Be Taken Seriously</p>
-    </div>
+    <!-- JavaScript -->
+    <script>
+        function playVideo(videoId) {
+            // Open the YouTube video in a new tab or iframe
+            window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
+        }
 
-    <div class="thumbnail" onclick="openModal('VIDEO_ID_3')">
-      <img src="https://img.youtube.com/vi/VIDEO_ID_3/0.jpg" alt="Dance 3 Thumbnail">
-      <p>Life on Mars?</p>
-    </div>
+        // Dynamically position each thumbnail at random spots
+        const thumbnails = document.querySelectorAll('.thumbnail');
 
-    <div class="thumbnail" onclick="openModal('VIDEO_ID_4')">
-      <img src="https://img.youtube.com/vi/VIDEO_ID_4/0.jpg" alt="Dance 4 Thumbnail">
-      <p>The End of The World</p>
-    </div>
-  </div>
+        thumbnails.forEach(thumbnail => {
+            // Start with a random position
+            const randomX = Math.random() * (window.innerWidth - thumbnail.width);
+            const randomY = Math.random() * (window.innerHeight - thumbnail.height);
+            thumbnail.style.transform = `translate(${randomX}px, ${randomY}px)`;
 
-  <!-- Modal for YouTube Video -->
-  <div class="modal" id="videoModal">
-    <span class="modal-close" onclick="closeModal()">&times;</span>
-    <iframe id="videoFrame" src="" allowfullscreen></iframe>
-  </div>
-
-  <script>
-    function openModal(videoId) {
-      const modal = document.getElementById('videoModal');
-      const iframe = document.getElementById('videoFrame');
-      iframe.src = `https://www.youtube.com/embed/${videoId}`;
-      modal.classList.add('active');
-    }
-
-    function closeModal() {
-      const modal = document.getElementById('videoModal');
-      const iframe = document.getElementById('videoFrame');
-      iframe.src = ''; // Stop video playback
-      modal.classList.remove('active');
-    }
-  </script>
+            // Add random movement
+            thumbnail.addEventListener('animationiteration', () => {
+                const newRandomX = Math.random() * (window.innerWidth - thumbnail.width);
+                const newRandomY = Math.random() * (window.innerHeight - thumbnail.height);
+                thumbnail.style.transform = `translate(${newRandomX}px, ${newRandomY}px)`;
+            });
+        });
+    </script>
 </body>
 </html>
-
-
-
