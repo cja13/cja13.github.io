@@ -20,9 +20,10 @@
             position: absolute; /* Absolute positioning for precise placement */
             top: 25%; /* Align the container to the top of the screen */
             left: 50%; /* Center it horizontally */
-            transform: translateX(-50%); /* Adjust for horizontal centering */
+            transform: translateX(-50%);/* Adjust for horizontal centering */
+            transform: translateY(25%);
             display: flex;
-            animation: moveToSides 15s infinite; /* Animation for movement */
+            animation: moveToSides 18s infinite; /* Animation for movement */
         }
 
         #image1, #image2, #image3 {
@@ -36,10 +37,10 @@
             0% {
                 transform: translateX(0); /* Start at the center */
             }
-            20% {
+            30% {
                 transform: translateX(-50vw); /* Move to the left */
             }
-            30% {
+            40% {
                 transform: translateX(-50vw) rotateY(180deg); /* Rotate at the left edge */
             }
             50% {
@@ -48,7 +49,7 @@
             60% {
                 transform: translateX(50vw) rotateY(180deg); /* Rotate at the right edge */
             }
-            80% {
+            70% {
                 transform: translateX(50vw); /* Return to the center */
             }
         }
@@ -92,7 +93,7 @@
         }
 
         // Start alternating images every 500ms (0.5 seconds)
-        setInterval(alternateImages, 300);
+        setInterval(alternateImages, 400);
     </script>
 </body>
 </html>
