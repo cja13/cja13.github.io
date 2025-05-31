@@ -11,6 +11,7 @@
             background-color: #f0f0f0;
             overflow: hidden; /* Prevent scrollbars */
             font-family: Garamond, serif;
+            
         }
 
         a {
@@ -33,6 +34,17 @@
             height: auto;
             backface-visibility: hidden; /* Ensure the back of the image is hidden during rotation */
         }
+
+        .title-text { 
+            position: absolute; 
+            top: 10%; 
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2em;
+            font-family: Garamond, serif;
+            color: hotpink;
+        }
+            
 
         @keyframes moveToSides {
             0% {
