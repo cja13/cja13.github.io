@@ -54,6 +54,15 @@
             100% { transform: translate(20vw, 10vh); }
         }
 
+        @keyframes bounce5 {
+            0% { transform: translate(70vw, 90vh); }
+            25% { transform: translate(20vw, 40vh); }
+            50% { transform: translate(30vw, 10vh); }
+            75% { transform: translate(50vw, 30vh); }
+            100% { transform: translate(70vw, 80vh); }
+        }
+
+
         /* Assign unique animations to each thumbnail */
         #thumbnail1 {
             animation: bounce1 12s infinite alternate ease-in-out;
@@ -70,6 +79,10 @@
         #thumbnail4 {
             animation: bounce4 18s infinite alternate ease-in-out;
         }
+
+        #thumbnail5 {
+            animation: bounce5 10s infinite alternate ease-in-out;
+        }
     </style>
 </head>
 <body>
@@ -78,6 +91,8 @@
     <img id="thumbnail2" class="thumbnail" src="https://img.youtube.com/vi/Yo3y5oAD_io/hqdefault.jpg" alt="Video 2" onclick="playVideo('Yo3y5oAD_io')">
     <img id="thumbnail3" class="thumbnail" src="https://img.youtube.com/vi/iNxg1LTnpsQ/hqdefault.jpg" alt="Video 3" onclick="playVideo('iNxg1LTnpsQ')">
     <img id="thumbnail4" class="thumbnail" src="https://img.youtube.com/vi/oSjfYL73r6o/hqdefault.jpg" alt="Video 4" onclick="playVideo('oSjfYL73r6o')">
+    <img id="thumbnail5" class="thumbnail" src="https://img.youtube.com/vi/onH6lXaC4q8/hqdefault.jpg" alt="Video 4" onclick="playVideo('onH6lXaC4q8')">
+
 
     <!-- JavaScript -->
     <script>
