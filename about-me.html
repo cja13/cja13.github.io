@@ -35,6 +35,12 @@
             animation: float2 4s ease-in-out infinite; /* Slightly slower animation */
         }
 
+        .image3 {
+            right: 57%; /* Offset slightly to the left of the first image */
+            top: 62%; /* Lower than the first image */
+            animation: float3 3s ease-in-out infinite; /* Slightly slower animation */
+        }
+
         .static-overlay {
             position: absolute; /* Overlay position */
             z-index: 2; /* Ensure it's on top */
@@ -111,6 +117,18 @@
                 transform: translateY(0);
             }
         }
+
+        @keyframes float3 {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px); /* Larger bobbing motion */
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -119,6 +137,9 @@
     </a>
     <a href="thesis.html">
         <img src="images/hexxed (1).png" alt="Floating Image 2" class="floating-image image2">
+    </a>
+    <a href="writing.html">
+        <img src="images/bagel.png" alt="Floating Image 3" class="floating-image image3">
     </a>
     <!-- Static overlay image -->
     <img src="images/jar (1).png" alt="Static Overlay Image" class="static-overlay">
