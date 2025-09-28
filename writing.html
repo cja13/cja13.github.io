@@ -20,12 +20,19 @@
       left: -200px; /* start off screen */
       width: 150px;
       cursor: pointer;
-      animation: swim 12s linear infinite;
+      animation: swim 12s linear infinite, bob 2s ease-in-out infinite;
     }
 
     @keyframes swim {
-      from { left: -200px; }
-      to { left: 100vw; }
+      0%   { left: -200px; transform: scaleX(1); }     /* face right */
+      50%  { left: 100vw; transform: scaleX(1); }      /* move right */
+      51%  { transform: scaleX(-1); }                  /* flip to face left */
+      100% { left: -200px; transform: scaleX(-1); }    /* move left */
+    }
+
+    @keyframes bob {
+      0%, 100% { top: 40%; }
+      50%      { top: 45%; }
     }
 
     /* Generic modal styles */
