@@ -9,46 +9,46 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center; /* Center content horizontally */
-            align-items: center; /* Center content vertically */
-            height: 100vh; /* Full viewport height */
-            background-color: transparent; /* No background */
-            position: relative; /* Establish a containing context for the overlay */
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            background-color: transparent; 
+            position: relative; 
         }
 
         .floating-image {
-            position: absolute; /* Absolute positioning for precise placement */
-            width: 150px; /* Smaller image size */
+            position: absolute; 
+            width: 150px;
             height: auto;
             z-index: 1;
         }
 
         .image1 {
-            right: 50%; /* Positioned closer to the center */
-            top: 26%; /* Slightly below the vertical center */
+            right: 50%; 
+            top: 26%; 
             animation: float1 3s ease-in-out infinite;
         }
 
         .image2 {
-            right: 42%; /* Offset slightly to the left of the first image */
-            top: 52%; /* Lower than the first image */
-            animation: float2 4s ease-in-out infinite; /* Slightly slower animation */
+            right: 42%; 
+            top: 52%; 
+            animation: float2 4s ease-in-out infinite; 
         }
 
         .image3 {
-            right: 40%; /* Offset slightly to the left of the first image */
-            top: 32%; /* Lower than the first image */
-            animation: float3 5s ease-in-out infinite; /* Slightly slower animation */
+            right: 40%; 
+            top: 32%; 
+            animation: float3 5s ease-in-out infinite; 
         }
 
         .static-overlay {
-            position: absolute; /* Overlay position */
-            z-index: 2; /* Ensure it's on top */
-            width: 500px; /* Larger size for the overlay */
+            position: absolute; 
+            z-index: 2;
+            width: 500px; 
             height: auto;
-            top: 50%; /* Vertically center */
-            left: 50%; /* Horizontally center */
-            transform: translate(-50%, -50%); /* Adjust for true centering */
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
             pointer-events: none;
         }
 
@@ -99,7 +99,7 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-15px); /* Slightly smaller bobbing motion */
+                transform: translateY(-15px); 
             }
             100% {
                 transform: translateY(0);
@@ -111,7 +111,7 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-25px); /* Larger bobbing motion */
+                transform: translateY(-25px); 
             }
             100% {
                 transform: translateY(0);
@@ -123,7 +123,7 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-35px); /* Larger bobbing motion */
+                transform: translateY(-35px); 
             }
             100% {
                 transform: translateY(0);
@@ -141,7 +141,6 @@
     <a href="writing.html">
         <img src="images/bagel (1).png" alt="Floating Image 3" class="floating-image image3">
     </a>
-    <!-- Static overlay image -->
     <img src="images/jar (1).png" alt="Static Overlay Image" class="static-overlay">
 
     <div class ="code-box">
