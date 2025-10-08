@@ -36,7 +36,7 @@
       50%      { top: 45%; }
     }
 
-    /* Generic modal styles */
+    /* Generic modal  */
     .modal {
       display: none;
       position: fixed;
@@ -113,7 +113,7 @@
     // Password check
     submitBtn.addEventListener("click", () => {
       const password = document.getElementById("passwordInput").value;
-      if (password === "chicken") { // <-- change to your password
+      if (password === "chicken") { 
         passwordModal.style.display = "none";
         writingModal.style.display = "flex";
       } else {
