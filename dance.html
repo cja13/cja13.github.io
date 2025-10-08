@@ -9,19 +9,19 @@
             margin: 0;
             padding: 0;
             background-color: #ff55a3;
-            overflow: hidden; /* Prevent scrollbars */
+            overflow: hidden; 
             position: relative;
         }
 
         .thumbnail {
             position: absolute;
-            width: 250px; /* Adjust the thumbnail size */
-            height: auto; /* Maintain aspect ratio */
+            width: 250px; 
+            height: auto; 
             cursor: pointer;
             transition: transform 0.3s ease;
         }
 
-        /* Define unique animations for each thumbnail */
+        /*  animations for each thumbnail */
         @keyframes bounce1 {
             0% { transform: translate(10vw, 10vh); }
             25% { transform: translate(70vw, 20vh); }
@@ -63,7 +63,7 @@
         }
 
 
-        /* Assign unique animations to each thumbnail */
+        /* Assign animations to each thumbnail */
         #thumbnail1 {
             animation: bounce1 12s infinite alternate ease-in-out;
         }
