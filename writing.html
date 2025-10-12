@@ -114,7 +114,7 @@
     <div class="modalContent">
       <h2>password</h2>
       <input type="password" id="passwordInput2" placeholder="typee heree">
-      <button id="submitPassword">let's see</button>
+      <button id="submitPassword2">let's see</button>
     </div>
   </div>
 
@@ -158,9 +158,7 @@
     // Close if clicking outside modal content
     [passwordModal, writingModal].forEach(modal => {
       modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-          modal.style.display = "none";
-        }
+        if (e.target === modal) modal.style.display = "none";
       });
     });
 
@@ -192,7 +190,6 @@
     [passwordModal2, writingModal2].forEach(modal => {
       modal.addEventListener("click", e => {
         if (e.target === modal) modal.style.display = "none";
-        } 
       });
     });
 
