@@ -27,11 +27,11 @@
     #fish2 {
       transform: scaleX(-3);
       position: absolute;
-      top: 60%;
+      top: 80%;
       left: -100px; /* start off screen */
       width: 150px;
       cursor: pointer;
-      animation: swim 15s linear infinite, bob 4s ease-in-out infinite;
+      animation: swim 15s linear infinite, bob 5s ease-in-out infinite;
     }
 
     @keyframes swim {
@@ -41,22 +41,11 @@
       100% { left: -200px; transform: scaleX(-1); }    /* move left */
     }
 
-     @keyframes swim2 {
-      0%   { left: 100vw; transform: scaleX(1); }
-      50%  { left: -200px; transform: scaleX(1); }
-      51%  { transform: scaleX(-1); }
-      100% { left: 100vw; transform: scaleX(-1); }
-    }
-
     @keyframes bob {
       0%, 100% { top: 40%; }
       50%      { top: 45%; }
     }
 
-    @keyframes bob2 {
-      0%, 100% { top: 60%; }
-      50%      { top: 63%; }
-    }
 
     /* Generic modal  */
     .modal {
@@ -121,6 +110,15 @@
     </div>
   </div>
 
+  <div id="passwordModal2" class="modal">
+    <div class="modalContent">
+      <h2>password</h2>
+      <input type="password" id="passwordInput2" placeholder="typee heree">
+      <button id="submitPassword">let's see</button>
+    </div>
+  </div>
+
+  
   <div id="writingModal2" class="modal">
     <div class="modalContent">
       <h2>Another Piece</h2>
