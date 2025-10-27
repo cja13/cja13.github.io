@@ -34,6 +34,16 @@
       animation: swim 15s linear infinite, bob 5s ease-in-out infinite;
     }
 
+     #fish3 {
+      transform: scaleX(-5);
+      position: absolute;
+      top: 100%;
+      left: -100px; /* start off screen */
+      width: 150px;
+      cursor: pointer;
+      animation: swim 17s linear infinite, bob 8s ease-in-out infinite;
+    }
+
     @keyframes swim {
       0%   { left: -200px; transform: scaleX(1); }     /* face right */
       50%  { left: 100vw; transform: scaleX(1); }      /* move right */
@@ -86,6 +96,7 @@
   <h1> </h1>
   <img id="fish" src="images/fish.png" alt="fish">
   <img id="fish2" src="images/fish2.png" alt="fish2">
+  <img id="fish3" src="images/fish3.png" alt="fish3">
 
   <!-- Password Modal -->
   <div id="passwordModal" class="modal">
@@ -127,6 +138,27 @@
       <p>I want someone to wear my entire essence like a glove. I want to only be functional when you try me on. In the meantime, I’ll sit in the closet. Waiting an eternity for it to get cold enough for you to remember me.</p>
       <p>But, I am not a glove. I am a human girl. And so I need to go through my day, limp and lifeless. Finding small gusts of wind to hold me up. </p>
       <button id="closeWriting2">Close</button>
+    </div>
+  </div>
+
+    <div id="passwordModal3" class="modal">
+    <div class="modalContent">
+      <h2>password</h2>
+      <input type="password" id="passwordInput3" placeholder="typee heree">
+      <button id="submitPassword3">let's see</button>
+    </div>
+  </div>
+
+  
+  <div id="writingModal3" class="modal">
+    <div class="modalContent">
+      <h2>26.10.25</h2>
+      <p>I carry my laptop in a faux-snake-skin purse. A few months ago it lived in the backpack I purchased before my freshman year of college. I switched to the bag in an effort to achieve a more grown-up look after graduating. A hand-me-down from an old friend. I traded in my back pain for a sore shoulder. It made me feel cool. Like I knew where I was going. And that I was used to being asymmetrical.</p>
+      <p>I hold this bag as I walk to work. It’s fabric wearing off like the falling leaves. I wonder if fellow-commuters can tell I’m new at purse-carrying. That my experience with a bag typically comes with a rounded spine. When I wear the purse on coffee dates and walks along the river, I want to tell my peer that this is new for me. That I’m making an effort to grow up. That, authentically, deep-down, at my core, I am a backpack-wearer. This is surely important for them to know. But I don’t mention it. And as we walk side by side, I move it over to my left shoulder so I don’t block our forming connection. I think I come across as someone who wears a bag. Perhaps my practice is paying off, or perhaps no one cares.</p>
+      <p>There’s a chill outside. The first Thursday it feels like fall. I had been waiting for the east-coast air to have that familiar smell. One I haven’t encountered in five years. My body feels sad. Am I reminded of lonely days in high school? Of a temperate west-coast January? Of how much has changed so suddenly? </p>  
+      <p>Fall came late this year. Leaves clung to trees until they rotted off in the extreme September heat. Never having the chance to develop reds and oranges. Wilting straight from green to brown. Summer did not want to leave. She hung around so long that it felt like it might be that way forever. It felt like I’ll always have my best friend, a long Friday lunch, and a party to look forward to. So when this Thursday came, I still wasn’t ready to change. It felt like forgetting you and remembering who I am. </p>  
+      <p>I walk home from work. I wonder if fall will ever agree with me. If I’ll be missing forever. I adjust my bag higher up on my arm. I hear my name from across the street. The two syllables ringing over the sound of 5:16 traffic. A new friend has recognized me. As if I am a person to be recognized in this new place. A grown-up kind of person with an uneven walk and a faux-snake-skin purse. </p>
+      <button id="closeWriting3">Close</button>
     </div>
   </div>
 
@@ -195,6 +227,38 @@
         if (e.target === modal) modal.style.display = "none";
       });
     });
+
+    // fish 3
+    const fish3 = document.getElementById("fish3");
+    const passwordModal3 = document.getElementById("passwordModal3");
+    const writingModal3 = document.getElementById("writingModal3");
+    const submitBtn3 = document.getElementById("submitPassword3");
+    const closeWriting3 = document.getElementById("closeWriting3");
+
+    fish3.addEventListener("click", () => {
+      passwordModal3.style.display = "flex";
+    });
+    
+    submitBtn3.addEventListener("click", () => {
+      const password = document.getElementById("passwordInput3").value;
+      if (password === "meowmeowmeow") {  // different password
+        passwordModal3.style.display = "none";
+        writingModal3.style.display = "flex";
+      } else {
+        alert("sorry :(");
+      }
+    });
+
+    closeWriting3.addEventListener("click", () => {
+      writingModal3.style.display = "none";
+    });
+
+    [passwordModal3, writingModal3].forEach(modal => {
+      modal.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+    });
+
 
     
   </script>
