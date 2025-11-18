@@ -45,6 +45,16 @@
       animation: swim 17s linear infinite, bob 2s ease-in-out infinite;
     }
 
+    #fish4 {
+      transform: scaleX(-7);
+      position: absolute;
+      top: 20%;
+      left: -10px; /* start off screen */
+      width: 110px;
+      cursor: pointer;
+      animation: swim 20s linear infinite, bob 1s ease-in-out infinite;
+    }
+
     @keyframes swim {
       0%   { left: -200px; transform: scaleX(1); }     /* face right */
       50%  { left: 100vw; transform: scaleX(1); }      /* move right */
@@ -98,6 +108,7 @@
   <img id="fish" src="images/fish.png" alt="fish">
   <img id="fish2" src="images/fish2.png" alt="fish2">
   <img id="fish3" src="images/fish3.png" alt="fish3">
+  <img id="fish4" src="images/fish4.png" alt="fish4">
 
   <!-- Password Modal -->
   <div id="passwordModal" class="modal">
@@ -162,6 +173,32 @@
       <button id="closeWriting3">Close</button>
     </div>
   </div>
+
+  <div id="passwordModal4" class="modal">
+    <div class="modalContent">
+      <h2>password</h2>
+      <input type="password" id="passwordInput4" placeholder="typee heree">
+      <button id="submitPassword4">let's see</button>
+    </div>
+  </div>
+
+  
+  <div id="writingModal4" class="modal">
+    <div class="modalContent">
+      <h2>18.11.25</h2>
+      <p>I remember thinking I should write it down. It felt so poetic to be there. To notice. Our collective shape walking together. Me, teetering from side to side, pushing and pulling against the crook of your arm. I’m too excited to move steadily. I gesture with my other hand, it keeps my sentences fluid. I’m afraid if I stop talking it will become too intimate. That we’ll have to comment on our position. That someone else will notice. That you’ll pull away. That we’ll have to break our form. You slow down to keep in time with my awkward gait, a feature of mine I’m chronically insecure about. How my body, despite attempts at mobility and grace, refuses to move with the poise I think I should have. Ghosts of injuries dominate years of ballet training, making my walk something of a morbid creature. This doesn’t seem to bother you. At least not now. </p>
+      <p>We move clumsily together. As a unit. We’re not used to standing together like this, meandering the tricky corners of a CVS in Midtown. A museum to us. We pick up items that have infinite ties to an impossibly long friendship. “Remember that?"</p>
+      <p>And obviously I do. </p>
+      <p>I remember it all.</p>
+      <p>I’m on the plane traveling West. My first time crossing the Mississippi since I’ve been trying to forget. The last time was with you. A flight the same length, to a different end point, and I’d be in your city. You’d pick me up, I’d sit at your kitchen counter, you’d grab a grape from the fridge, I’d comment on the new couch. We’d go outside, walk, this time with a comfortable distance between us. I’d follow your path. If I wanted to, I’m sure I could remember the winding roads, but I’ve always had you to lead me. So I make turn after unexpected turn, eagerly waiting for you to paint a picture of a version of yourself who lived here. A version I know well from stories, from our first impressions, from spending so much time trying to figure you out.</p>
+      <p>I’m on the plane reading a suggested book from a mutual friend. A book suggested to me in reference to you. It’s about grief. It’s about death. Death came near to me more times this year than ever before. It makes me want to live like tomorrow I would die. If tomorrow I would die, I would beg the pilot to go North instead of South. If tomorrow I would die, I would want to see the new couch. I tried to live this way with you. Leaving everything out on the table between us in a small cafe after an overnight bus trip. You don’t want this. I’m not sure what you want. I don’t think I feel much like listening. On our last phone call that felt honest, I said I just wanted to be close to you. You said you wanted to be close to me. </p>
+      <p>I wanted us to be in our shape.</p>
+      <p>The plane ride is turbulent. I think about what would happen if it crashed. How long would it take for the news to get to you? I’m not sure who would find out first. A handful of friends know where I’m going. No one has my flight number. Perhaps my coworkers would first notice. Somehow they would get a hold of my family. Would they think to contact you? It would take a while for you to find out. I texted you about the flight last night, at a time you should have responded. You didn’t. What would that last text be? Last words you’d hear from me. Notes on a new friend who shared a similar interest to us. The plan lands and I hope you’ve texted me. You haven’t.</p>
+      <p>I go about my weekend, pretending not to notice we’re in the same time zone. But I can’t help it. It’s all I have to write down. </p>
+      <button id="closeWriting4">Close</button>
+    </div>
+  </div>
+        
 
   <script>
     const fish = document.getElementById("fish");
@@ -255,6 +292,37 @@
     });
 
     [passwordModal3, writingModal3].forEach(modal => {
+      modal.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+    });
+
+    // fish 4
+    const fish4 = document.getElementById("fish4");
+    const passwordModal4 = document.getElementById("passwordModal4");
+    const writingModal4 = document.getElementById("writingModal4");
+    const submitBtn4 = document.getElementById("submitPassword4");
+    const closeWriting4 = document.getElementById("closeWriting4");
+
+    fish4.addEventListener("click", () => {
+      passwordModal4.style.display = "flex";
+    });
+    
+    submitBtn4.addEventListener("click", () => {
+      const password = document.getElementById("passwordInput4").value;
+      if (password === "AGHHHHHH") {  // different password
+        passwordModal4.style.display = "none";
+        writingModal4.style.display = "flex";
+      } else {
+        alert("sorry :(");
+      }
+    });
+
+    closeWriting4.addEventListener("click", () => {
+      writingModal4.style.display = "none";
+    });
+
+    [passwordModal4, writingModal4].forEach(modal => {
       modal.addEventListener("click", e => {
         if (e.target === modal) modal.style.display = "none";
       });
