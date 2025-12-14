@@ -55,6 +55,16 @@
       animation: swim 20s linear infinite, bob 1s ease-in-out infinite;
     }
 
+      #fish5 {
+      transform: scaleX(-9);
+      position: absolute;
+      top: 70%;
+      left: -80px; /* start off screen */
+      width: 110px;
+      cursor: pointer;
+      animation: swim 13s linear infinite, bob 14s ease-in-out infinite;
+    }
+
     @keyframes swim {
       0%   { left: -200px; transform: scaleX(1); }     /* face right */
       50%  { left: 100vw; transform: scaleX(1); }      /* move right */
@@ -109,6 +119,7 @@
   <img id="fish2" src="images/fish2.png" alt="fish2">
   <img id="fish3" src="images/fish3.png" alt="fish3">
   <img id="fish4" src="images/fish4.png" alt="fish4">
+  <img id="fish5" src="images/fish5.png" alt="fish5">
 
   <!-- Password Modal -->
   <div id="passwordModal" class="modal">
@@ -196,6 +207,34 @@
       <p>The plane ride is turbulent. I think about what would happen if it crashed. How long would it take for the news to get to you? I’m not sure who would find out first. A handful of friends know where I’m going. No one has my flight number. Perhaps my coworkers would first notice. Somehow they would get a hold of my family. Would they think to contact you? It would take a while for you to find out. I texted you about the flight last night, at a time you should have responded. You didn’t. What would that last text be? Last words you’d hear from me. Notes on a new friend who shared a similar interest to us. The plan lands and I hope you’ve texted me. You haven’t.</p>
       <p>I go about my weekend, pretending not to notice we’re in the same time zone. But I can’t help it. It’s all I have to write down. </p>
       <button id="closeWriting4">Close</button>
+    </div>
+  </div>
+
+  <div id="passwordModal4" class="modal">
+    <div class="modalContent">
+      <h2>password</h2>
+      <input type="password" id="passwordInput4" placeholder="typee heree">
+      <button id="submitPassword4">let's see</button>
+    </div>
+  </div>
+
+  
+  <div id="writingModal5" class="modal">
+    <div class="modalContent">
+      <h2>14.12.25</h2>
+      <p>I have been scared of being my current age since I was young enough to notice time.</p>
+      <p>I first noticed time when I was in grade school. Life was chunked into segments. Now I am in elementary school. I will soon be in middle school. Then I will be in high school. Time was stationed within specific buildings. The shapes of these buildings helped me understand age. The rooms that bounded second and third grade were smaller than fifth and sixth. </p>
+      <p>In seventh grade I considered myself to be “halfway.” I inhabited a point equidistant to when I started noticing time, to when this kind of time would be finished. To when time would no longer be fixed to bounded vessels. To when time could no longer be described by its space. I’ll call this location time. I knew where the when would be. While it wasn’t so much of a tangible thought, I could picture these locations “running out.” In elementary school, I knew the high school I would attend. I knew what it looked like. After that, I had nothing to picture.</p>
+      <p>I feared this new kind of time. I remember a friend’s older sister (older by just one year) turning thirteen. At a new thirteen, she told my mother, when asked about being a teenager (finally), that this age felt good. But noted how some don’t consider thirteen a true teenager. I felt relief upon learning this news. Relief because I had one extra year before this new segment of age. The teenage segment.</p>
+      <p>I wonder why she mentioned this. Was she impatiently awaiting a learners permit and house parties? Things that didn’t come with being a mere thirteen. Did admitting her youth make her seem more mature in the presence of adults? A sort of rejection of her current adolescence. Was she also scared of becoming a teenager? Scared of location-less time. </p>
+      <p>At my current age, I think to being thirteen. I think about how it’s the same distance between when I noticed time to when I considered location time to be over. I suppose that halfway point was the age of seventeen. Just before this location time ended. </p>
+      <p>I recall an earlier memory. I recall realizing I had the ability to “remember.” I pumped some hand soap into my palm and internally declared that this would be an event I would commit to memory. With this memory of hand soap, I would store all the other things I wished to never forget. I do not recall these stored memories. Besides the first one I decided to attach to it. I had told myself to not forget that I wished to be a writer. I remember feeling that I would be disappointed if I never became one. This was something I found both important and evasive enough for me to store it in my separate memory box. I suppose I was afraid I would forget my childhood dream. And I suppose I have. Even if I remember the words.</p>
+      <p>At seventeen, I knew how I wanted eighteen to look. I’d know where I would be going to college. I’d enter this college with a new found confidence. I’d be desired and wanted and at the start of the beginning of a long life of being these things. I never took a writing class. I instead studied science and had problems that existed right in front of me. </p>
+      <p>At twenty-two, I feel the fear I felt when I had first noticed time. I feel aged. I’m not sure where I should be. I find myself in a city unfamiliar. I find myself sketching the outline of what my life should be. I find myself saying I’ve done something. I do not find myself all that expectant. I feel my hormones wish for children and love and feel passionless about my career. </p>
+      <p>I’m still scared of this age. Fear had done nothing to prevent the inevitable clock to tick towards the early-twenties. I’m not sure when I’ll stop feeling scared. Time takes on new forms now. I wait for the work day to be over and beg the months to go by slower. I’m scared that it’s been six months since I graduated. Three since I’ve seen my best friend. Two since we stopped being that. </p>
+      <p>I wish to be thirteen. Or maybe I wish to be someone else. I’m jealous of students walking in pairs to class. Of elderly people at the end of their life. Of seventeen year olds with one last chunk of location time. Of new parents. Of old friends. </p>
+      <p>I still notice time. And I notice it continues to slip by. And I wonder how I’ll feel in eight more years. And if I’ll recognize this as another location that housed this stage of life. But, at twenty-two, when I reach out to touch the wall, I find nothing there. </p>
+      <button id="closeWriting5">Close</button>
     </div>
   </div>
         
@@ -323,6 +362,37 @@
     });
 
     [passwordModal4, writingModal4].forEach(modal => {
+      modal.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+    });
+
+    // fish 5
+    const fish5 = document.getElementById("fish5");
+    const passwordModal5 = document.getElementById("passwordModal5");
+    const writingModal5 = document.getElementById("writingModal5");
+    const submitBtn5 = document.getElementById("submitPassword5");
+    const closeWriting5 = document.getElementById("closeWriting5");
+
+    fish5.addEventListener("click", () => {
+      passwordModal5.style.display = "flex";
+    });
+    
+    submitBtn5.addEventListener("click", () => {
+      const password = document.getElementById("passwordInput5").value;
+      if (password === "bleepbloop") {  // different password
+        passwordModal5.style.display = "none";
+        writingModal5.style.display = "flex";
+      } else {
+        alert("sorry :(");
+      }
+    });
+
+    closeWriting5.addEventListener("click", () => {
+      writingModal5.style.display = "none";
+    });
+
+    [passwordModal5, writingModal5].forEach(modal => {
       modal.addEventListener("click", e => {
         if (e.target === modal) modal.style.display = "none";
       });
