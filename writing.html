@@ -55,7 +55,7 @@
       animation: swim 20s linear infinite, bob 1s ease-in-out infinite;
     }
 
-      #fish5 {
+      #fish6 {
       transform: scaleX(-9);
       position: absolute;
       top: 70%;
@@ -119,7 +119,7 @@
   <img id="fish2" src="images/fish2.png" alt="fish2">
   <img id="fish3" src="images/fish3.png" alt="fish3">
   <img id="fish4" src="images/fish4.png" alt="fish4">
-  <img id="fish5" src="images/fish5.png" alt="fish5">
+  <img id="fish6" src="images/fish6.png" alt="fish6">
 
   <!-- Password Modal -->
   <div id="passwordModal" class="modal">
@@ -210,16 +210,16 @@
     </div>
   </div>
 
-  <div id="passwordModal4" class="modal">
+  <div id="passwordModal6" class="modal">
     <div class="modalContent">
       <h2>password</h2>
-      <input type="password" id="passwordInput4" placeholder="typee heree">
-      <button id="submitPassword4">let's see</button>
+      <input type="password" id="passwordInput6" placeholder="typee heree">
+      <button id="submitPassword6">let's see</button>
     </div>
   </div>
 
   
-  <div id="writingModal5" class="modal">
+  <div id="writingModal6" class="modal">
     <div class="modalContent">
       <h2>14.12.25</h2>
       <p>I have been scared of being my current age since I was young enough to notice time.</p>
@@ -367,32 +367,32 @@
       });
     });
 
-    // fish 5
-    const fish5 = document.getElementById("fish5");
-    const passwordModal5 = document.getElementById("passwordModal5");
-    const writingModal5 = document.getElementById("writingModal5");
-    const submitBtn5 = document.getElementById("submitPassword5");
-    const closeWriting5 = document.getElementById("closeWriting5");
+    // fish 6
+    const fish6 = document.getElementById("fish6");
+    const passwordModal6 = document.getElementById("passwordModal6");
+    const writingModal6 = document.getElementById("writingModal6");
+    const submitBtn6 = document.getElementById("submitPassword6");
+    const closeWriting5 = document.getElementById("closeWriting6");
 
-    fish5.addEventListener("click", () => {
-      passwordModal5.style.display = "flex";
+    fish6.addEventListener("click", () => {
+      passwordModal6.style.display = "flex";
     });
     
-    submitBtn5.addEventListener("click", () => {
-      const password = document.getElementById("passwordInput5").value;
+    submitBtn6.addEventListener("click", () => {
+      const password = document.getElementById("passwordInput6").value;
       if (password === "bleepbloop") {  // different password
-        passwordModal5.style.display = "none";
-        writingModal5.style.display = "flex";
+        passwordModal6.style.display = "none";
+        writingModal6.style.display = "flex";
       } else {
         alert("sorry :(");
       }
     });
 
-    closeWriting5.addEventListener("click", () => {
-      writingModal5.style.display = "none";
+    closeWriting6.addEventListener("click", () => {
+      writingModal6.style.display = "none";
     });
 
-    [passwordModal5, writingModal5].forEach(modal => {
+    [passwordModal6, writingModal6].forEach(modal => {
       modal.addEventListener("click", e => {
         if (e.target === modal) modal.style.display = "none";
       });
