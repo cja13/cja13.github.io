@@ -62,7 +62,17 @@
       left: -80px; /* start off screen */
       width: 110px;
       cursor: pointer;
-      animation: swim 13s linear infinite, bob 14s ease-in-out infinite;
+      animation: swim 13s linear infinite, bob 4s ease-in-out infinite;
+    }
+
+     #fish7 {
+      transform: scaleX(3);
+      position: absolute;
+      top: 40%;
+      left: -30px; /* start off screen */
+      width: 80px;
+      cursor: pointer;
+      animation: swim 15s linear infinite, bob 3s ease-in-out infinite;
     }
 
     @keyframes swim {
@@ -120,6 +130,7 @@
   <img id="fish3" src="images/fish3.png" alt="fish3">
   <img id="fish4" src="images/fish4.png" alt="fish4">
   <img id="fish6" src="images/fish6.png" alt="fish6">
+  <img id="fish7" src="images/fish7.png" alt="fish7">
 
   <!-- Password Modal -->
   <div id="passwordModal" class="modal">
@@ -234,7 +245,37 @@
       <p>I’m still scared of this age. Fear had done nothing to prevent the inevitable clock to tick towards the early-twenties. I’m not sure when I’ll stop feeling scared. Time takes on new forms now. I wait for the work day to be over and beg the months to go by slower. I’m scared that it’s been six months since I graduated. Three since I’ve seen my best friend. Two since we stopped being that. </p>
       <p>I wish to be thirteen. Or maybe I wish to be someone else. I’m jealous of students walking in pairs to class. Of elderly people at the end of their life. Of seventeen year olds with one last chunk of location time. Of new parents. Of old friends. </p>
       <p>I still notice time. And I notice it continues to slip by. And I wonder how I’ll feel in eight more years. And if I’ll recognize this as another location that housed this stage of life. But, at twenty-two, when I reach out to touch the wall, I find nothing there. </p>
-      <button id="closeWriting5">Close</button>
+      <button id="closeWriting6">Close</button>
+    </div>
+  </div>
+
+   <div id="passwordModal7" class="modal">
+    <div class="modalContent">
+      <h2>password</h2>
+      <input type="password" id="passwordInput7" placeholder="typee heree">
+      <button id="submitPassword7">let's see</button>
+    </div>
+  </div>
+
+  
+  <div id="writingModal7" class="modal">
+    <div class="modalContent">
+      <h2>21.12.25</h2>
+      <p>It first snowed a Sunday after dancing. </p>
+      <p>I thought of the last time I felt this cold.</p>
+      <p>We walked in my hometown with a friend. </p>
+      <p>I’m shocked I’m now this old.</p>
+      <p>    </p>
+      <p>My mind has stuck since turning eighteen, </p>
+      <p>Frozen like the slippy part of the street.</p>
+      <p>I walk to work thinking of this;</p>
+      <p>I wonder when we’ll next meet.</p>
+      <p>     </p>
+      <p>I’m not sure who I’ll be when I see you again.</p>
+      <p>More timid. A bit jaded. Older. </p>
+      <p>I hope to be someone shiny and new. </p>
+      <p>But, for now, I’ll watch the days get colder. </p>
+      <button id="closeWriting7">Close</button>
     </div>
   </div>
         
@@ -393,6 +434,37 @@
     });
 
     [passwordModal6, writingModal6].forEach(modal => {
+      modal.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+    });
+
+    // fish 7
+    const fish7 = document.getElementById("fish7");
+    const passwordModal7 = document.getElementById("passwordModal7");
+    const writingModal7 = document.getElementById("writingModal7");
+    const submitBtn7 = document.getElementById("submitPassword7");
+    const closeWriting7 = document.getElementById("closeWriting7");
+
+    fish7.addEventListener("click", () => {
+      passwordModal7.style.display = "flex";
+    });
+    
+    submitBtn7.addEventListener("click", () => {
+      const password = document.getElementById("passwordInput6").value;
+      if (password === "orange") {  // different password
+        passwordModal7.style.display = "none";
+        writingModal7.style.display = "flex";
+      } else {
+        alert("sorry :(");
+      }
+    });
+
+    closeWriting7.addEventListener("click", () => {
+      writingModal7.style.display = "none";
+    });
+
+    [passwordModal7, writingModal7].forEach(modal => {
       modal.addEventListener("click", e => {
         if (e.target === modal) modal.style.display = "none";
       });
