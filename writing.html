@@ -75,6 +75,16 @@
       animation: swim 15s linear infinite, bob 3s ease-in-out infinite;
     }
 
+    #fish8 {
+      transform: scaleX(-1);
+      position: absolute;
+      top: 20%;
+      left: 10px; /* start off screen */
+      width: 100px;
+      cursor: pointer;
+      animation: swim 10s linear infinite, bob 2s ease-in-out infinite;
+    }
+
     @keyframes swim {
       0%   { left: -200px; transform: scaleX(1); }     /* face right */
       50%  { left: 100vw; transform: scaleX(1); }      /* move right */
@@ -131,6 +141,7 @@
   <img id="fish4" src="images/fish4.png" alt="fish4">
   <img id="fish6" src="images/fish6.png" alt="fish6">
   <img id="fish7" src="images/fish7.png" alt="fish7">
+  <img id="fish8" src="images/fish8.png" alt="fish8">
 
   <!-- Password Modal -->
   <div id="passwordModal" class="modal">
@@ -276,6 +287,24 @@
       <p>I hope to be someone shiny and new. </p>
       <p>But, for now, I’ll watch the days get colder. </p>
       <button id="closeWriting7">Close</button>
+    </div>
+  </div>
+
+  <div id="writingModal8" class="modal">
+    <div class="modalContent">
+      <h2>03.01.26</h2>
+      <p>I moved to Philadelphia after graduating, interning abroad for a summer, confessing my love for my best friend of four years, and then being rejected. And despite growing up less than two hours away, I knew no one in the city. So I was feeling pretty lonely. I would go to my new job each day and then force myself to go to strange millennial events in the evenings: a writing workshop at Iffy Books, Free Comedy at Tattooed Mom, First Friday in Old City. I’d go to these places alone and try my best to find a new best friend, an acquaintance, or at the very least, a brief connection. I mostly collected these brief connections: A guy named Steve who wrote fiction (that’s as specific as he ever got), a fulltime espresso-machine repair man, and an organic dog food founder and their instagram-famous dog. These brief connections kept me going. I found it inspiring to be in a city where people stop and talk, offer advice, or even give a hug. </p>
+      <p>A few months in, I had my first visitor. A college friend from Boston whose sister lived on Bainbridge and 13th. I was really excited. All this time alone had given me a pretty good sense of the city. Spending my weekends wandering allowed me to discover cafes, bookstores, and those Danish stationary stores with like 10 products in them. I was really excited to share this with someone who had known me in a previous life and excited to be with a true friend. The recipient of my recent love confession used to visit places where I lived. We would go on these long tours, where I’d paint a picture of my life in a specific place. It was always really special to share something like that. And that relationship no longer existed. So I was hoping to share my first instance of adult life with this other friend. </p>
+      <p>But… we got in a fight! I had let my expectations get in the way of communicating my wishes for the weekend. And my friend was spending most of their time with their sister, which I hadn’t planned for. It was just one of those instances of miscommunication. So when we had finally come together on Saturday evening, things were tense. We were wandering around South Street, sometimes arguing, sometimes in silence and we came across a LINE. I always say that there are only about 3 lines at each given moment in Philadelphia. And one of them is often at Angelo’s. This was my first time seeing that line. </p>
+      <p>We were both eager for a break from our awkward half-fight, so we started commenting on the length of the line. Patrons told us that this was rather short for Angelo’s. We look at each other, shrug, and get in the back of the line. Here, we started pondering about what could lie within the establishment. We couldn’t see the pizza and cheesesteak due to the high density of people covering the small store front. Upon hearing our naive questioning, the man in front of us turns around. </p>
+      <p>He’s the quintessential Philadelphia man: wearing an Eagles hat with “Jawn” on it. White, Philadelphian accent. He tells us to get steak with hot peppers. He tells us his daughter is going to a sleepover tonight. He tells us his BIG PLAN is to order 2 sandwiches. One steak with hot peppers and one with fried onions. He tells us it’s a SNACKING food. You can’t eat them in one sitting. He tells us he’s gonna cut it up into tiny pieces. And eat it throughout his evening. This is his BIG PLAN. Neither of us are hungry. One of us is a vegetarian. But we figure we’ve made it this far. </p>
+      <p>In line, the Philadelphia man tells us that South street is like the Yellow Brick Road; everything south of South Street is Emerald City. He could’ve said that everything south of South Street is really cool. But he used the metaphor. He orders, then we order, then we go our separate ways. My friend and I wander around, waiting for our food. This interaction has cheered us up. We wonder what this Philadelphia-man’s name could possibly be. I suggest John (hat reference). It must be something like that. We wonder about his daughter and what the sleepover will be like. We both admit we expected him to be purchasing this food for the daughter. We’re delighted it’s all for him. We have stopped fighting. My friend says that this city is perfect for me, a place where these brief connections with strangers are folded into everyday life. </p>
+      <p>Just when we are becoming too tired to keep wandering around Italian Market, we finally get the text that our order is ready. We get the food and sit outside the park on Fitzwater across the street. We eat in silence (a trademark of good food) and then from across the way we see our Philadelphia-Man picking up his order. </p>
+      <p>He shouts across the street: “HOW IS IT?”</p>
+      <p>“GREAT!” We hold up our pizza to show him.</p>
+      <p>He walks over to us. We ask his name. His name is Abraham. Decidedly not John. I realize he must be a prophet of Philadelphia. I mark this brief connection as biblical. </p>
+      <p>Since then, I still get lonely here. I keep going to my millenial events. I try to be an Abraham for others. And I have hope that these will turn into acquaintances, and, even new best friends. </p>
+      <button id="closeWriting8">Close</button>
     </div>
   </div>
         
@@ -465,6 +494,37 @@
     });
 
     [passwordModal7, writingModal7].forEach(modal => {
+      modal.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+    });
+
+    // fish 8
+    const fish8 = document.getElementById("fish8");
+    const passwordModal8 = document.getElementById("passwordModal8");
+    const writingModal8 = document.getElementById("writingModal8");
+    const submitBtn8 = document.getElementById("submitPassword8");
+    const closeWriting8 = document.getElementById("closeWriting8");
+
+    fish8.addEventListener("click", () => {
+      passwordModal8.style.display = "flex";
+    });
+    
+    submitBtn8.addEventListener("click", () => {
+      const password = document.getElementById("passwordInput8").value;
+      if (password === "moth") {  // different password
+        passwordModal8.style.display = "none";
+        writingModal8.style.display = "flex";
+      } else {
+        alert("sorry :(");
+      }
+    });
+
+    closeWriting8.addEventListener("click", () => {
+      writingModal8.style.display = "none";
+    });
+
+    [passwordModal8, writingModal8].forEach(modal => {
       modal.addEventListener("click", e => {
         if (e.target === modal) modal.style.display = "none";
       });
