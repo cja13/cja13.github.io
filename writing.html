@@ -85,6 +85,16 @@
       animation: swim 10s linear infinite, bob 2s ease-in-out infinite;
     }
 
+     #fish9 {
+      transform: scaleX(2);
+      position: absolute;
+      top: 20%;
+      left: -9px; /* start off screen */
+      width: 40px;
+      cursor: pointer;
+      animation: swim 7s linear infinite, bob 4s ease-in-out infinite;
+    }
+
     @keyframes swim {
       0%   { left: -200px; transform: scaleX(1); }     /* face right */
       50%  { left: 100vw; transform: scaleX(1); }      /* move right */
@@ -142,6 +152,7 @@
   <img id="fish6" src="images/fish6.png" alt="fish6">
   <img id="fish7" src="images/fish7.png" alt="fish7">
   <img id="fish8" src="images/fish8.png" alt="fish8">
+  <img id="fish9" src="images/fish9.png" alt="fish9">
 
   <!-- Password Modal -->
   <div id="passwordModal" class="modal">
@@ -313,6 +324,37 @@
       <p>He walks over to us. We ask his name. His name is Abraham. Decidedly not John. I realize he must be a prophet of Philadelphia. I mark this brief connection as biblical. </p>
       <p>Since then, I still get lonely here. I keep going to my millenial events. I try to be an Abraham for others. And I have hope that these will turn into acquaintances, and, even new best friends. </p>
       <button id="closeWriting8">Close</button>
+    </div>
+  </div>
+
+  <div id="passwordModal9" class="modal">
+    <div class="modalContent">
+      <h2>password</h2>
+      <input type="password" id="passwordInput9" placeholder="typee heree">
+      <button id="submitPassword9">let's see</button>
+    </div>
+  </div>
+
+  <div id="writingModal9" class="modal">
+    <div class="modalContent">
+      <h2>24.01.26</h2>
+      <p>Everyone’s god used to be their mom in her bright orange turtle neck.</p>
+      <p>Obviously, the moms didn’t like this. </p>
+      <p>“Does it have to be the bright orange one,” they would ask.</p>
+      <p>And, yes, it absolutely had to be that one. </p>
+      <p>     </p>
+      <p>Behind the retinas there was a bright orange stain. Rectangular. </p>
+      <p>Rectangular but not a rectangle. The outline of a thing that has yet to be born. </p>
+      <p>Stitched together and sent to those who had the outline of children. </p>
+      <p>So that one day they may wish on the behind part of their retinas</p>
+      <p>For a trampoline, or a friend, or to pass it along. </p>
+      <p>      </p>
+      <p>One day, god showed up wearing blue. It was strange to see. </p>
+      <p>The behind-the-retina part was used to only bright orange. </p>
+      <p>But, apparently, this was more flattering. </p>
+      <p>Blue used to be for the front of the eyes. But here blue was. </p>
+      <p>Stuck there.</p>
+      <button id="closeWriting9">Close</button>
     </div>
   </div>
         
@@ -533,6 +575,37 @@
     });
 
     [passwordModal8, writingModal8].forEach(modal => {
+      modal.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+    });
+
+    // fish 9
+    const fish9 = document.getElementById("fish9");
+    const passwordModal9 = document.getElementById("passwordModal9");
+    const writingModal9 = document.getElementById("writingModal9");
+    const submitBtn9 = document.getElementById("submitPassword9");
+    const closeWriting9 = document.getElementById("closeWriting9");
+
+    fish9.addEventListener("click", () => {
+      passwordModal9.style.display = "flex";
+    });
+    
+    submitBtn9.addEventListener("click", () => {
+      const password = document.getElementById("passwordInput9").value;
+      if (password === "what") {  // different password
+        passwordModal9.style.display = "none";
+        writingModal9.style.display = "flex";
+      } else {
+        alert("sorry :(");
+      }
+    });
+
+    closeWriting9.addEventListener("click", () => {
+      writingModal9.style.display = "none";
+    });
+
+    [passwordModal9, writingModal9].forEach(modal => {
       modal.addEventListener("click", e => {
         if (e.target === modal) modal.style.display = "none";
       });
