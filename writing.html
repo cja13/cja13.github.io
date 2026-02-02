@@ -95,6 +95,16 @@
       animation: swim 17s linear infinite, bob 4s ease-in-out infinite;
     }
 
+      #fish10 {
+      transform: scaleX(2);
+      position: absolute;
+      top: 50%;
+      left: 3px; /* start off screen */
+      width: 50px;
+      cursor: pointer;
+      animation: swim 10s linear infinite, bob 2s ease-in-out infinite;
+    }
+
     @keyframes swim {
       0%   { left: -200px; transform: scaleX(1); }     /* face right */
       50%  { left: 100vw; transform: scaleX(1); }      /* move right */
@@ -153,6 +163,7 @@
   <img id="fish7" src="images/fish7.png" alt="fish7">
   <img id="fish8" src="images/fish8.png" alt="fish8">
   <img id="fish9" src="images/fish9.png" alt="fish9">
+  <img id="fish10" src="images/fish10.png" alt="fish10">
 
   <!-- Password Modal -->
   <div id="passwordModal" class="modal">
@@ -355,6 +366,21 @@
       <p>Blue used to be for the front of the eyes. But here blue was. </p>
       <p>Stuck there.</p>
       <button id="closeWriting9">Close</button>
+    </div>
+  </div>
+
+  <div id="writingModal10" class="modal">
+    <div class="modalContent">
+      <h2>02.02.26</h2>
+      <p>“I don’t watch sitcoms.”</p>
+      <p>I’m sitting in the coffee shop one of my new friends works at. I’m not sitting. I’m standing against the wall. Talking to other friends who had the same idea. I’m listening in on another patron’s conversation.  </p>
+      <p>“I feel like they’re taunting me.”</p>
+      <p>I relate to this sentiment that I overhear. The speaker explains how the sitcom is supposed to be a genre that’s easy to watch. </p>
+      <p>Not when you can’t explain how the characters have so many friends, how they linger at the coffee shop or the bar or the loft for hours, or how they fall in and out of love with only mild complications. It’s not an easy watch. It taunts. </p>
+      <p>The sitcom is a model of an ideal life. There are problems to make things interesting, but ones that are concluded in 20-30 minutes. The best sitcoms do this but, importantly, have series long developments. It takes nine years for Ted to meet his wife. Six for Nick and Jess to finally figure it out. </p>
+      <p>I want these series-long developments. I want an epic story. One that makes everything make sense. But that doesn’t seem to be how life works. I have a suspicion it won’t ever make sense why my best friend no longer is that or why I’m all alone in a new city in my early twenties. </p>
+      <p>But I suppose all I can do is hope. I can begin my own developments. I start it by visiting a new friend at the cafe they work at. I talk to the friend and the friend of the friend and maybe it’ll start to materialize. I try to be patient and routine. I try to trust it’s building to something. </p>
+      <button id="closeWriting10">Close</button>
     </div>
   </div>
         
@@ -610,6 +636,38 @@
         if (e.target === modal) modal.style.display = "none";
       });
     });
+
+     // fish 10
+    const fish10 = document.getElementById("fish10");
+    const passwordModal10 = document.getElementById("passwordModal10");
+    const writingModal10 = document.getElementById("writingModal10");
+    const submitBtn10 = document.getElementById("submitPassword10");
+    const closeWriting10 = document.getElementById("closeWriting10");
+
+    fish10.addEventListener("click", () => {
+      passwordModal10.style.display = "flex";
+    });
+    
+    submitBtn10.addEventListener("click", () => {
+      const password = document.getElementById("passwordInput10").value;
+      if (password === "ted") {  // different password
+        passwordModal10.style.display = "none";
+        writingModal10.style.display = "flex";
+      } else {
+        alert("sorry :(");
+      }
+    });
+
+    closeWriting10.addEventListener("click", () => {
+      writingModal10.style.display = "none";
+    });
+
+    [passwordModal10, writingModal10].forEach(modal => {
+      modal.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+    });
+
 
 
     
