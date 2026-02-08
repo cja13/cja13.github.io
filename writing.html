@@ -105,6 +105,16 @@
       animation: swim 20s linear infinite, bob 2s ease-in-out infinite;
     }
 
+      #fish11 {
+      transform: scaleX(2);
+      position: absolute;
+      top: 50%;
+      left: 3px; /* start off screen */
+      width: 100px;
+      cursor: pointer;
+      animation: swim 70s linear infinite, bob 4s ease-in-out infinite;
+    }
+
     @keyframes swim {
       0%   { left: -200px; transform: scaleX(1); }     /* face right */
       50%  { left: 100vw; transform: scaleX(1); }      /* move right */
@@ -164,6 +174,7 @@
   <img id="fish8" src="images/fish8.png" alt="fish8">
   <img id="fish9" src="images/fish9.png" alt="fish9">
   <img id="fish10" src="images/fish10.png" alt="fish10">
+  <img id="fish11" src="images/fish11.png" alt="fish11">
 
   <!-- Password Modal -->
   <div id="passwordModal" class="modal">
@@ -369,6 +380,14 @@
     </div>
   </div>
 
+   <div id="passwordModal10" class="modal">
+    <div class="modalContent">
+      <h2>password</h2>
+      <input type="password" id="passwordInput10" placeholder="typee heree">
+      <button id="submitPassword10">let's see</button>
+    </div>
+  </div>
+
   <div id="writingModal10" class="modal">
     <div class="modalContent">
       <h2>02.02.26</h2>
@@ -381,6 +400,27 @@
       <p>I want these series-long developments. I want an epic story. One that makes everything make sense. But that doesn’t seem to be how life works. I have a suspicion it won’t ever make sense why my best friend no longer is that or why I’m all alone in a new city in my early twenties. </p>
       <p>But I suppose all I can do is hope. I can begin my own developments. I start it by visiting a new friend at the cafe they work at. I talk to the friend and the friend of the friend and maybe it’ll start to materialize. I try to be patient and routine. I try to trust it’s building to something. </p>
       <button id="closeWriting10">Close</button>
+    </div>
+  </div>
+
+  <div id="passwordModal11" class="modal">
+    <div class="modalContent">
+      <h2>password</h2>
+      <input type="password" id="passwordInput11" placeholder="typee heree">
+      <button id="submitPassword11">let's see</button>
+    </div>
+  </div>
+
+  <div id="writingModal11" class="modal">
+    <div class="modalContent">
+      <h2>08.02.26</h2>
+      <p>It’s february and the rest of their life.</p>
+      <p>The people are all the twenty-two almost twenty-three year olds in the city they moved to. They envy twenty-one year olds (already) and the ones who have yet to be twenty-three (even them). One by one they turn twenty-three; they forget how old they are (it doesn’t seem to matter anymore); and they fall into the rest of their lives. </p>
+      <p>They landed here after letting go. They held on for a while. To old friends, passions of art (or something), and a dream for what life would be like. Fingers start to slip. One by one. Some still have a few left clinging on. But none have more than four. </p>
+      <p>Obviously they talk of this falling amongst themselves. They know what it’s like to feel their fingers slipping off. They wonder how they got here. They retrace their steps. Recall what it was like to have all ten fingers hanging on. They recount the dramatic tale of when their first finger slipped. But by the time they have just two fingers left, this story becomes old. But they haven’t found something new to grab onto yet. </p>
+      <p>A few of them make a considerable effort. One meets a nice man who tells her she’ll be thin the rest of her life. He says that the way you look doesn’t change much by the time you turn twenty-one. It’s quite objective the way he says this. Quite matter-of-fact. Stating that her body probably won’t grow or shrink all that much. It’s likely true. Important: he didn’t say she’ll stay beautiful, or even that she was (he noted that she and him have the same hair and eye color). Notice: the girl still finds it more important to be thin than to be beautiful. This is enough to at least graze another ledge. Enough to give her at least the thought of clinging to something new. </p>
+      <p>It’s february and the rest of her life. </p>
+      <button id="closeWriting11">Close</button>
     </div>
   </div>
         
@@ -663,6 +703,37 @@
     });
 
     [passwordModal10, writingModal10].forEach(modal => {
+      modal.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+    });
+
+     // fish 11
+    const fish11 = document.getElementById("fish11");
+    const passwordModal11 = document.getElementById("passwordModal11");
+    const writingModal11 = document.getElementById("writingModal11");
+    const submitBtn11 = document.getElementById("submitPassword11");
+    const closeWriting11 = document.getElementById("closeWriting11");
+
+    fish11.addEventListener("click", () => {
+      passwordModal11.style.display = "flex";
+    });
+    
+    submitBtn11.addEventListener("click", () => {
+      const password = document.getElementById("passwordInput11").value;
+      if (password === "feb") {  // different password
+        passwordModal11.style.display = "none";
+        writingModal11.style.display = "flex";
+      } else {
+        alert("sorry :(");
+      }
+    });
+
+    closeWriting11.addEventListener("click", () => {
+      writingModal11.style.display = "none";
+    });
+
+    [passwordModal11, writingModal11].forEach(modal => {
       modal.addEventListener("click", e => {
         if (e.target === modal) modal.style.display = "none";
       });
