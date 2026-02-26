@@ -115,6 +115,16 @@
       animation: swim 70s linear infinite, bob 4s ease-in-out infinite;
     }
 
+      #fish12 {
+      transform: scaleX(2);
+      position: absolute;
+      top: 20%;
+      left: 9px; /* start off screen */
+      width: 100px;
+      cursor: pointer;
+      animation: swim 30s linear infinite, bob 2s ease-in-out infinite;
+    }
+
     @keyframes swim {
       0%   { left: -200px; transform: scaleX(1); }     /* face right */
       50%  { left: 100vw; transform: scaleX(1); }      /* move right */
@@ -175,6 +185,8 @@
   <img id="fish9" src="images/fish9.png" alt="fish9">
   <img id="fish10" src="images/fish10.png" alt="fish10">
   <img id="fish11" src="images/fish11.png" alt="fish11">
+  <img id="fish12" src="images/fish12.png" alt="fish12">
+
 
   <!-- Password Modal -->
   <div id="passwordModal" class="modal">
@@ -423,7 +435,25 @@
       <button id="closeWriting11">Close</button>
     </div>
   </div>
-        
+
+  <div id="passwordModal12" class="modal">
+    <div class="modalContent">
+      <h2>password</h2>
+      <input type="password" id="passwordInput12" placeholder="typee heree">
+      <button id="submitPassword12">let's see</button>
+    </div>
+  </div>
+
+  <div id="writingModal12" class="modal">
+    <div class="modalContent">
+      <h2>26.02.26</h2>
+      <p>3 thoughts on touch:</p>
+      <p>I’m nervous to give hugs because I don’t know how my body feels to another person. I notice someone else’s frame when we embrace. I’m sure they notice mine. My parents used to ask me to hug them and then say I wasn’t hugging with enough of my body. So I’d adjust my position and they’d comment how I was odd and my hugs were unnatural. </p>
+      <p>My best friend in high school had the same kind of body language: one that begs not to be touched. We would dance together, times that gave us the permission to touch. I recall thinking intensely before we would make contact. Feeling giddy when we would. On our last night together, we hugged. I think it felt natural. </p>
+      <p>A later best friend had the same condition. Our friendship was longer, with more time to develop a physical relationship. To me, each moment of connection felt so filled with meaning. A comforting tap on the shoulder, a joking head pat, the occasional hug. She later stated that she found it awkward to touch me, unsure of what that could mean.  </p>
+      <button id="closeWriting12">Close</button>
+    </div>
+  </div>
 
   <script>
     const fish = document.getElementById("fish");
@@ -734,6 +764,37 @@
     });
 
     [passwordModal11, writingModal11].forEach(modal => {
+      modal.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+    });
+
+     // fish 12
+    const fish12 = document.getElementById("fish12");
+    const passwordModal12 = document.getElementById("passwordModal12");
+    const writingModal12 = document.getElementById("writingModal12");
+    const submitBtn12 = document.getElementById("submitPassword12");
+    const closeWriting12 = document.getElementById("closeWriting12");
+
+    fish12.addEventListener("click", () => {
+      passwordModal12.style.display = "flex";
+    });
+    
+    submitBtn12.addEventListener("click", () => {
+      const password = document.getElementById("passwordInput12").value;
+      if (password === "touch") {  // different password
+        passwordModal12.style.display = "none";
+        writingModal12.style.display = "flex";
+      } else {
+        alert("sorry :(");
+      }
+    });
+
+    closeWriting12.addEventListener("click", () => {
+      writingModal12.style.display = "none";
+    });
+
+    [passwordModal12, writingModal12].forEach(modal => {
       modal.addEventListener("click", e => {
         if (e.target === modal) modal.style.display = "none";
       });
