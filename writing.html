@@ -125,6 +125,16 @@
       animation: swim 30s linear infinite, bob 2s ease-in-out infinite;
     }
 
+     #fish13 {
+      transform: scaleX(2);
+      position: absolute;
+      top: 30%;
+      left: 2px; /* start off screen */
+      width: 100px;
+      cursor: pointer;
+      animation: swim 20s linear infinite, bob 5s ease-in-out infinite;
+    }
+
     @keyframes swim {
       0%   { left: -200px; transform: scaleX(1); }     /* face right */
       50%  { left: 100vw; transform: scaleX(1); }      /* move right */
@@ -186,6 +196,7 @@
   <img id="fish10" src="images/fish10.png" alt="fish10">
   <img id="fish11" src="images/fish11.png" alt="fish11">
   <img id="fish12" src="images/fish12.png" alt="fish12">
+  <img id="fish13" src="images/fish13.png" alt="fish13">
 
 
   <!-- Password Modal -->
@@ -452,6 +463,26 @@
       <p>My best friend in high school had the same kind of body language: one that begs not to be touched. We would dance together, times that gave us the permission to touch. I recall thinking intensely before we would make contact. Feeling giddy when we would. On our last night together, we hugged. I think it felt natural. </p>
       <p>A later best friend had the same condition. Our friendship was longer, with more time to develop a physical relationship. To me, each moment of connection felt so filled with meaning. A comforting tap on the shoulder, a joking head pat, the occasional hug. She later stated that she found it awkward to touch me, unsure of what that could mean.  </p>
       <button id="closeWriting12">Close</button>
+    </div>
+  </div>
+
+  <div id="passwordModal13" class="modal">
+    <div class="modalContent">
+      <h2>password</h2>
+      <input type="password" id="passwordInput13" placeholder="typee heree">
+      <button id="submitPassword13">let's see</button>
+    </div>
+  </div>
+
+  <div id="writingModal13" class="modal">
+    <div class="modalContent">
+      <h2>05.05.26</h2>
+      <p>Pink petals cover the city floor. The pedestrian wants to document it. A poem comparing it to tulle or frosting, something otherworldly and girlish. She doesn’t. She reckons everything that’s been said about the phenomenon has already been written down. She has nothing to add. She steps in it. How often do you get to crush petals?</p>
+      <p>The air feels like it did when she first got here. It lingered around around and hung like plastic tassels. The ones that you place in the doorway for a birthday, that cling to you with their static fingers. She became stuck. Stuck in the depth of summer. She broke away. Winter was a welcome freeze. Frozen in the fraction between them. But the stickiness comes back. It blows the petals off the trees and leaves you alone, stuck, and thinking. </p>
+      <p>You look in the mirror and remember you cut your hair months ago. It was weeks ago. It used to be. The decision comes everyday to keep it short or decide to grow it back out. You're not quite sure who it is. What it is? You live life inside the mirror. You walk back through the door as you see yourself opening it. </p>
+      <p>You remember your hair and who you used to be underneath it. She tries to talk to you. You try to talk to her. Who talks to you now? You don’t quite remember what it feels like to be held. Metaphorically, of course. It’s just you out there. Out here. And you’re worried that if you let yourself be yourself, you’ll be left alone. No one makes her feel better but herself, and she does a terrible job.</p>
+      <p>It’s the Wednesday after the Sunday she saw the petals. September is comprehensible. It used to feel unimaginable that it would ever get here. But I understand the logic now. By the next Sunday she’s sure the petals will be gone, they certainly won’t be pink any more. She wishes she had written it down, taken a picture. But she’s stuck in the mirror. </p>
+      <button id="closeWriting13">Close</button>
     </div>
   </div>
 
@@ -798,8 +829,38 @@
       modal.addEventListener("click", e => {
         if (e.target === modal) modal.style.display = "none";
       });
+    });       
+    
+    // fish 13
+    const fish13 = document.getElementById("fish13");
+    const passwordModal13 = document.getElementById("passwordModal13");
+    const writingModal13 = document.getElementById("writingModal13");
+    const submitBtn13 = document.getElementById("submitPassword13");
+    const closeWriting13 = document.getElementById("closeWriting13");
+
+    fish13.addEventListener("click", () => {
+      passwordModal13.style.display = "flex";
+    });
+    
+    submitBtn13.addEventListener("click", () => {
+      const password = document.getElementById("passwordInput13").value;
+      if (password === "pink") {  // different password
+        passwordModal13.style.display = "none";
+        writingModal13.style.display = "flex";
+      } else {
+        alert("sorry :(");
+      }
     });
 
+    closeWriting13.addEventListener("click", () => {
+      writingModal13.style.display = "none";
+    });
+
+    [passwordModal13, writingModal13].forEach(modal => {
+      modal.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+    });
 
 
     
