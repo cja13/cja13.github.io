@@ -135,6 +135,16 @@
       animation: swim 20s linear infinite, bob 5s ease-in-out infinite;
     }
 
+    #fish14 {
+      transform: scaleX(2);
+      position: absolute;
+      top: 80%;
+      left: 10px; /* start off screen */
+      width: 100px;
+      cursor: pointer;
+      animation: swim 25s linear infinite, bob 8s ease-in-out infinite;
+    }
+
     @keyframes swim {
       0%   { left: -200px; transform: scaleX(1); }     /* face right */
       50%  { left: 100vw; transform: scaleX(1); }      /* move right */
@@ -197,6 +207,7 @@
   <img id="fish11" src="images/fish11.png" alt="fish11">
   <img id="fish12" src="images/fish12.png" alt="fish12">
   <img id="fish13" src="images/fish13.png" alt="fish13">
+  <img id="fish14" src="images/fish14.png" alt="fish14">
 
 
   <!-- Password Modal -->
@@ -483,6 +494,31 @@
       <p>You remember your hair and who you used to be underneath it. She tries to talk to you. You try to talk to her. Who talks to you now? You don’t quite remember what it feels like to be held. Metaphorically, of course. It’s just you out there. Out here. And you’re worried that if you let yourself be yourself, you’ll be left alone. No one makes her feel better but herself, and she does a terrible job.</p>
       <p>It’s the Wednesday after the Sunday she saw the petals. September is comprehensible. It used to feel unimaginable that it would ever get here. But I understand the logic now. By the next Sunday she’s sure the petals will be gone, they certainly won’t be pink any more. She wishes she had written it down, taken a picture. But she’s stuck in the mirror. </p>
       <button id="closeWriting13">Close</button>
+    </div>
+  </div>
+
+  <div id="passwordModal14" class="modal">
+    <div class="modalContent">
+      <h2>password</h2>
+      <input type="password" id="passwordInput14" placeholder="typee heree">
+      <button id="submitPassword14">let's see</button>
+    </div>
+  </div>
+
+  <div id="writingModal14" class="modal">
+    <div class="modalContent">
+      <h2>12.04.26</h2>
+      <p>The flight attendant gives you endless opportunities to throw out your trash. You don’t even need to walk it to a trash bin, just reach your hand into the seat pocket, shift your weight towards the aisle, and hand it off to the flight attendant. You can do that, or you can avoid eye contact, or pretend like you still need your trash. </p>
+      <p>Sometimes there’s still half a cookie left. I’ve finished my cookies but I don’t feel ready to move yet. The act of pulling my hand from my thoughts towards the trash feels impossible.</p>
+      <p>I’m remembering previous flights.</p>
+      <p>A year ago I was in California dancing. I can’t quite believe I spent four years there. It has a different flavor. California. </p>
+      <p>I look at the plastic cup being crushed by the elastic net.</p>
+      <p>Am I refusing to feel it all the way? Or has it become stale? </p>
+      <p>On their next lap, I force myself to bring the cup to the attendant. It feels a bit metaphorical. </p>
+      <p>Like I am becoming. Like I need to shed shed shed in order to fully become. </p>
+      <p>But it’s fake and I’m just sad. But not sad enough to write well. </p>
+      <p>And now I’m in Florida and I threw out ¼ of my allotted airplane cookie. </p>
+      <button id="closeWriting14">Close</button>
     </div>
   </div>
 
@@ -857,6 +893,37 @@
     });
 
     [passwordModal13, writingModal13].forEach(modal => {
+      modal.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+    });
+
+    // fish 14
+    const fish14 = document.getElementById("fish14");
+    const passwordModal14 = document.getElementById("passwordModal14");
+    const writingModal14 = document.getElementById("writingModal14");
+    const submitBtn14 = document.getElementById("submitPassword14");
+    const closeWriting14 = document.getElementById("closeWriting14");
+
+    fish14.addEventListener("click", () => {
+      passwordModal14.style.display = "flex";
+    });
+    
+    submitBtn14.addEventListener("click", () => {
+      const password = document.getElementById("passwordInput14").value;
+      if (password === "trash") {  // different password
+        passwordModal14.style.display = "none";
+        writingModal14.style.display = "flex";
+      } else {
+        alert("sorry :(");
+      }
+    });
+
+    closeWriting14.addEventListener("click", () => {
+      writingModal14.style.display = "none";
+    });
+
+    [passwordModal14, writingModal14].forEach(modal => {
       modal.addEventListener("click", e => {
         if (e.target === modal) modal.style.display = "none";
       });
