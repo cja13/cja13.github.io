@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>apartment day</title>
+  
+  
+  <style>
+    body {
+      position: realtive;
+      margin: 0;
+      height: 100vh;
+      background: #B369F0;
+      overflow: hidden;
+      font-family: sans-serif;
+      text-align: center;
 
+      
+    }
+
+    
+
+    /* Fish  */
+    #cj1 {
+      transform: scaleX(-1);
+      position: absolute;
+      top: 40%;
+      left: 10px; /* start off screen */
+      width: 150px;
+      cursor: pointer;
+      animation: bob 4s ease-in-out infinite;
+    }
+
+    #cj2 {
+      transform: scaleX(-3);
+      position: absolute;
+      top: 80%;
+      left: -100px; /* start off screen */
+      width: 150px;
+      cursor: pointer;
+      animation: swim 15s linear infinite, bob 1s ease-in-out infinite;
+    }
+
+     #cj3 {
+      transform: scaleX(-5);
+      position: absolute;
+      top: 20%;
+      left: 200px; /* start off screen */
+      width: 150px;
+      cursor: pointer;
+      animation: bob 2s ease-in-out infinite;
+    }
+
+    #cj4 {
+      transform: scaleX(-7);
+      position: absolute;
+      top: 20%;
+      left: 500px; /* start off screen */
+      width: 110px;
+      cursor: pointer;
+      animation: swim 20s linear infinite, bob 1s ease-in-out infinite;
+    }
+
+      #cj5 {
+      transform: scaleX(-9);
+      position: absolute;
+      top: 70%;
+      left: 800px; /* start off screen */
+      width: 110px;
+      cursor: pointer;
+      animation: bob 7s ease-in-out infinite;
+    }
+
+     #cj6 {
+      transform: scaleX(3);
+      position: absolute;
+      top: 40%;
+      left: 30px; /* start off screen */
+      width: 100px;
+      cursor: pointer;
+      animation: swim 15s linear infinite, bob 3s ease-in-out infinite;
+    }
+
+    #cj7 {
+      transform: scaleX(3);
+      position: absolute;
+      top: 0%;
+      left: 1000px; /* start off screen */
+      width: 200px;
+      cursor: pointer;
+      animation: bob 3s ease-in-out infinite;
+    }
+
+
+
+    @keyframes swim {
+      0%   { left: -200px; transform: scaleX(1); }     /* face right */
+      50%  { left: 100vw; transform: scaleX(1); }      /* move right */
+      51%  { transform: scaleX(-1); }                  /* flip to face left */
+      100% { left: -200px; transform: scaleX(-1); }    /* move left */
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: scaleX(-1) translateY(0); }
+      50%      { transform: scaleX(-1) translateY(20px); }
+      
+    }
+  </style>
+</head>
+<body>
+  <h1> come see my apartment. </h1>
+    <p>please.</p>
+    <p>i will have beer/snacks (maybe)</p>
+    <p>you can sit in 1 of two chair options or on the floor</p>
+    <p>the disco toilet would love to meet you</p>
+    <p>june 5, 7pm</p>
+    <p>go birds.</p>
+  
+  <img id="cj1" src="images/cj1.png" alt="cj1">
+  <img id="cj2" src="images/cj2.png" alt="cj2">
+  <img id="cj3" src="images/cj3.png" alt="cj3">
+  <img id="cj4" src="images/cj4.png" alt="cj4">
+  <img id="cj5" src="images/cj5.png" alt="cj5">
+  <img id="cj6" src="images/cj6.png" width="500" alt="cj6">
+  <img id="cj7" src="images/cj7.png" width="10000" alt="cj7">
+
+</body>
+</html>
