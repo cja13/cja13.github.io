@@ -145,6 +145,16 @@
       animation: swim 25s linear infinite, bob 8s ease-in-out infinite;
     }
 
+    #fish15 {
+      transform: scaleX(2);
+      position: absolute;
+      top: 20%;
+      left: 50px; /* start off screen */
+      width: 100px;
+      cursor: pointer;
+      animation: swim 15s linear infinite, bob 4s ease-in-out infinite;
+    }
+
     @keyframes swim {
       0%   { left: -200px; transform: scaleX(1); }     /* face right */
       50%  { left: 100vw; transform: scaleX(1); }      /* move right */
@@ -208,6 +218,7 @@
   <img id="fish12" src="images/fish12.png" alt="fish12">
   <img id="fish13" src="images/fish13.png" alt="fish13">
   <img id="fish14" src="images/fish14.png" alt="fish14">
+  <img id="fish15" src="images/fish15.png" alt="fish15">
 
 
   <!-- Password Modal -->
@@ -519,6 +530,28 @@
       <p>But it’s fake and I’m just sad. But not sad enough to write well. </p>
       <p>And now I’m in Florida and I threw out ¼ of my allotted airplane cookie. </p>
       <button id="closeWriting14">Close</button>
+    </div>
+  </div>
+
+  <div id="passwordModal15" class="modal">
+    <div class="modalContent">
+      <h2>password</h2>
+      <input type="password" id="passwordInput15" placeholder="typee heree">
+      <button id="submitPassword15">let's see</button>
+    </div>
+  </div>
+
+  <div id="writingModal15" class="modal">
+    <div class="modalContent">
+      <h2>20.06.26</h2>
+      <p>You’re 23 and you’re living a life 22-year-old-you feared. It doesn’t make sense how an older version of you is somehow younger, and some older version of you will be more new. I guess you’ll never be new again.</p>
+      <p>I’m a set of nesting dolls. The outer one has plans after work and films herself dancing in the kitchen, but the ones on the inside are losing their only tether and walking hours in broken ballet flats. And there will never be any changing that. Because when you’re 23 ¼ and “fine,” you’re also 22 and losing your best friend, you’re 18 and watching the first person you love leave your life forever, you’re 16 and no boys have a crush on you, you’re 10 and you’re ugly, you’re 7 and too afraid to jump off the bed. </p>
+      <p>But I’m left with this outer doll forever; at 23 and almost a half, I’m not sure if I’ll ever be malleable again. You once wrote that I got in there, and transformed you into a new thing. That was possible at 18, but now we’re stuck. </p>
+      <p>Time turned to soup recently, if you recall, and you aren’t sure when something (if something) will come shake you up and add a new layer. It might be the soup forever. And this outer doll isn’t who you thought you would be. </p>
+      <p>Versions of you fold in on itself. And which one was last summer? Was it the road trip? The one in Rhode Island? I used to keep track of time, didn’t I? You make up stories so that it feels fresh, so you don’t feel like mirepoix . But everyday is always tuesday and you’re lonely on the weekends. </p>
+      <p>I must have known things would turn out this way. I remember it falling apart. I’m not sure I remember you. You exist so clearly, you sit on my mind, but I can’t focus in. I remember the shape around you but not what you are. It’s inconceivable that I ever had someone who knew me, I’m not sure anyone ever will again. </p>
+      <p>I’m stuck in the soup of the summer. It somehow happened again.</p>
+      <button id="closeWriting15">Close</button>
     </div>
   </div>
 
@@ -924,6 +957,37 @@
     });
 
     [passwordModal14, writingModal14].forEach(modal => {
+      modal.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+    });
+
+    // fish 15
+    const fish15 = document.getElementById("fish15");
+    const passwordModal15 = document.getElementById("passwordModal15");
+    const writingModal15 = document.getElementById("writingModal15");
+    const submitBtn15 = document.getElementById("submitPassword15");
+    const closeWriting15 = document.getElementById("closeWriting15");
+
+    fish15.addEventListener("click", () => {
+      passwordModal15.style.display = "flex";
+    });
+    
+    submitBtn15.addEventListener("click", () => {
+      const password = document.getElementById("passwordInput15").value;
+      if (password === "doll") {  // different password
+        passwordModal15.style.display = "none";
+        writingModal15.style.display = "flex";
+      } else {
+        alert("sorry :(");
+      }
+    });
+
+    closeWriting15.addEventListener("click", () => {
+      writingModal15.style.display = "none";
+    });
+
+    [passwordModal15, writingModal15].forEach(modal => {
       modal.addEventListener("click", e => {
         if (e.target === modal) modal.style.display = "none";
       });
