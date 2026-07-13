@@ -155,6 +155,16 @@
       animation: swim 15s linear infinite, bob 4s ease-in-out infinite;
     }
 
+    #fish16 {
+      transform: scaleX(2);
+      position: absolute;
+      top: 31%;
+      left: 30px; /* start off screen */
+      width: 100px;
+      cursor: pointer;
+      animation: swim 8s linear infinite, bob 1s ease-in-out infinite;
+    }
+
     @keyframes swim {
       0%   { left: -200px; transform: scaleX(1); }     /* face right */
       50%  { left: 100vw; transform: scaleX(1); }      /* move right */
@@ -219,6 +229,7 @@
   <img id="fish13" src="images/fish13.png" alt="fish13">
   <img id="fish14" src="images/fish14.png" alt="fish14">
   <img id="fish15" src="images/fish15.png" alt="fish15">
+  <img id="fish16" src="images/fish16.png" alt="fish16">
 
 
   <!-- Password Modal -->
@@ -552,6 +563,27 @@
       <p>I must have known things would turn out this way. I remember it falling apart. I’m not sure I remember you. You exist so clearly, you sit on my mind, but I can’t focus in. I remember the shape around you but not what you are. It’s inconceivable that I ever had someone who knew me, I’m not sure anyone ever will again. </p>
       <p>I’m stuck in the soup of the summer. It somehow happened again.</p>
       <button id="closeWriting15">Close</button>
+    </div>
+  </div>
+
+  <div id="passwordModal16" class="modal">
+    <div class="modalContent">
+      <h2>password</h2>
+      <input type="password" id="passwordInput16" placeholder="typee heree">
+      <button id="submitPassword16">let's see</button>
+    </div>
+  </div>
+
+  <div id="writingModal16" class="modal">
+    <div class="modalContent">
+      <h2>12.07.26</h2>
+      <p>I’m wearing the old t-shirt I was gifted two years ago. I can’t wear a shirt like this to work. The neck and the armpits are yellow and there’s a fake university advertised across the front. My hair used to cover a portion of the logo. </p>
+      <p>My hair’s short now. So the silhouette is familiar but something is off. I can’t quite seem to find myself in there. And I can only say that something is weird so many times. It’s just a shirt. I have lots of them. </p>
+      <p>I thought summer would look one way. I thought it would be mundane and isolating. But instead I spend weekends out until 4 am and watch the World Cup with my strange collection of friends. I’m laughing, for real. I’m having fun, for real. </p>
+      <p>I know this phase is temporary. As they all are. So I’ll dance when the opportunity arrives. It’s not very often in life you’ve got a group of people, a good dj, and the energy to dance into the night. </p>
+      <p>Who knows what things will look like next. Things blend into new ones. It becomes mid-July so suddenly. But if you retrace your steps, you can see how you got here. </p>
+      <p>A t-shirt lasts more than one season, at least it should. This one’s been across the country. It’s been covered in snot and sweat and sleepless nights. And you wear it because it reminds you of something. But mainly because it’s there. </p>
+      <button id="closeWriting16">Close</button>
     </div>
   </div>
 
@@ -988,6 +1020,37 @@
     });
 
     [passwordModal15, writingModal15].forEach(modal => {
+      modal.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+    });
+
+    // fish 16
+    const fish16 = document.getElementById("fish16");
+    const passwordModal16 = document.getElementById("passwordModal16");
+    const writingModal16 = document.getElementById("writingModal16");
+    const submitBtn16 = document.getElementById("submitPassword16");
+    const closeWriting16 = document.getElementById("closeWriting16");
+
+    fish16.addEventListener("click", () => {
+      passwordModal16.style.display = "flex";
+    });
+    
+    submitBtn16.addEventListener("click", () => {
+      const password = document.getElementById("passwordInput16").value;
+      if (password === "shirt") {  // different password
+        passwordModal16.style.display = "none";
+        writingModal16.style.display = "flex";
+      } else {
+        alert("sorry :(");
+      }
+    });
+
+    closeWriting16.addEventListener("click", () => {
+      writingModal16.style.display = "none";
+    });
+
+    [passwordModal16, writingModal16].forEach(modal => {
       modal.addEventListener("click", e => {
         if (e.target === modal) modal.style.display = "none";
       });
