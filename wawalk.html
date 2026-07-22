@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>wawalk</title>
+  
+  
+  <style>
+    body {
+      position: realtive;
+      margin: 0;
+      height: 100vh;
+      background: #B369F0;
+      overflow: hidden;
+      font-family: sans-serif;
+      text-align: center;
+
+      
+    }
+
+    
+
+    #wawa1 {
+      transform: scaleX(-1);
+      position: absolute;
+      top: 40%;
+      left: 10px; /* start off screen */
+      width: 150px;
+      cursor: pointer;
+      animation: bob 4s ease-in-out infinite;
+    }
+
+
+
+    @keyframes swim {
+      0%   { left: -200px; transform: scaleX(1); }     /* face right */
+      50%  { left: 100vw; transform: scaleX(1); }      /* move right */
+      51%  { transform: scaleX(-1); }                  /* flip to face left */
+      100% { left: -200px; transform: scaleX(-1); }    /* move left */
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: scaleX(-1) translateY(0); }
+      50%      { transform: scaleX(-1) translateY(20px); }
+      
+    }
+  </style>
+</head>
+<body>
+  <h1> annual wawalk 2026 </h1>
+    <p>hey guys</p>
+    <p>i'm gonna walk to every wawa in the immediate philadelphia area</p>
+    <p>please join me for a portion of the journey </p>
+    <p>aug. 1, starting early</p>
+    <p>blue slushie</p>
+    <p>go birds.</p>
+  
+  <img id="wawa1" src="images/wawa1.png" alt="wawa1">
+</body>
+</html>
