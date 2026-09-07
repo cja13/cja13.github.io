@@ -164,6 +164,16 @@
       cursor: pointer;
       animation: swim 8s linear infinite, bob 1s ease-in-out infinite;
     }
+    
+    #fish17 {
+      transform: scaleX(2);
+      position: absolute;
+      top: 80%;
+      left: 80px; /* start off screen */
+      width: 100px;
+      cursor: pointer;
+      animation: swim 12s linear infinite, bob 5s ease-in-out infinite;
+    }
 
     @keyframes swim {
       0%   { left: -200px; transform: scaleX(1); }     /* face right */
@@ -230,7 +240,7 @@
   <img id="fish14" src="images/fish14.png" alt="fish14">
   <img id="fish15" src="images/fish15.png" alt="fish15">
   <img id="fish16" src="images/fish16.png" alt="fish16">
-
+  <img id="fish17" src="images/fish17.png" alt="fish17">
 
   <!-- Password Modal -->
   <div id="passwordModal" class="modal">
@@ -584,6 +594,38 @@
       <p>Who knows what things will look like next. Things blend into new ones. It becomes mid-July so suddenly. But if you retrace your steps, you can see how you got here. </p>
       <p>A t-shirt lasts more than one season, at least it should. This one’s been across the country. It’s been covered in snot and sweat and sleepless nights. And you wear it because it reminds you of something. But mainly because it’s there. </p>
       <button id="closeWriting16">Close</button>
+    </div>
+  </div>
+
+    <div id="passwordModal17" class="modal">
+    <div class="modalContent">
+      <h2>password</h2>
+      <input type="password" id="passwordInput17" placeholder="typee heree">
+      <button id="submitPassword17">let's see</button>
+    </div>
+  </div>
+
+  <div id="writingModal17" class="modal">
+    <div class="modalContent">
+      <h2>31.08.26</h2>
+      <p>When I’m alone, I’m 10 minute ab workouts</p>
+      <p>I’m playing a character who’s angry </p>
+      <p>I’m looking at myself in the mirror </p>
+      <p>I pretend I’m being seen by someone else</p>
+      <p>Are other people beautiful alone? </p>
+      <p>Sometimes I try to be.</p> 
+      <p>I’m not sure if I’m jealous of your hair or sad. </p>
+      <p>I wish I didn’t have to see you smile. </p>
+      <p>I take a nap and see your ghost. </p>
+      <p>               </p>
+      <p>You think about sinking your claws into things. </p>
+      <p>Thinking about the concept, it’s something you already do. </p>
+      <p>You feel it disappear as soon as it’s touched. </p>
+      <p>You microwave the cooled off rice, it cooks it a bit more. </p>
+      <p>This would be funny if you had a friend. </p>
+      <p>But you’re not your ideal audience. </p>
+      <p>I eat it in bed and don’t brush my teeth. </p>
+      <button id="closeWriting17">Close</button>
     </div>
   </div>
 
@@ -1051,6 +1093,37 @@
     });
 
     [passwordModal16, writingModal16].forEach(modal => {
+      modal.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+    });
+
+    // fish 17
+    const fish17 = document.getElementById("fish17");
+    const passwordModal17 = document.getElementById("passwordModal17");
+    const writingModal17 = document.getElementById("writingModal17");
+    const submitBtn17 = document.getElementById("submitPassword17");
+    const closeWriting17 = document.getElementById("closeWriting17");
+
+    fish17.addEventListener("click", () => {
+      passwordModal17.style.display = "flex";
+    });
+    
+    submitBtn17.addEventListener("click", () => {
+      const password = document.getElementById("passwordInput17").value;
+      if (password === "rice") {  // different password
+        passwordModal17.style.display = "none";
+        writingModal17.style.display = "flex";
+      } else {
+        alert("sorry :(");
+      }
+    });
+
+    closeWriting17.addEventListener("click", () => {
+      writingModal17.style.display = "none";
+    });
+
+    [passwordModal17, writingModal17].forEach(modal => {
       modal.addEventListener("click", e => {
         if (e.target === modal) modal.style.display = "none";
       });
