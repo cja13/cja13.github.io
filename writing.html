@@ -175,6 +175,16 @@
       animation: swim 12s linear infinite, bob 5s ease-in-out infinite;
     }
 
+    #fish18 {
+      transform: scaleX(2);
+      position: absolute;
+      top: 10%;
+      left: 20px; /* start off screen */
+      width: 100px;
+      cursor: pointer;
+      animation: swim 35s linear infinite, bob 5s ease-in-out infinite;
+    }
+
     @keyframes swim {
       0%   { left: -200px; transform: scaleX(1); }     /* face right */
       50%  { left: 100vw; transform: scaleX(1); }      /* move right */
@@ -241,6 +251,7 @@
   <img id="fish15" src="images/fish15.png" alt="fish15">
   <img id="fish16" src="images/fish16.png" alt="fish16">
   <img id="fish17" src="images/fish17.png" alt="fish17">
+  <img id="fish18" src="images/fish18.png" alt="fish18">
 
   <!-- Password Modal -->
   <div id="passwordModal" class="modal">
@@ -626,6 +637,26 @@
       <p>But you’re not your ideal audience. </p>
       <p>I eat it in bed and don’t brush my teeth. </p>
       <button id="closeWriting17">Close</button>
+    </div>
+  </div>
+
+  <div id="writingModal18" class="modal">
+    <div class="modalContent">
+      <h2>27.09.26</h2>
+      <p>The weather is so perfect it could make you vomit.</p>
+      <p>I’m wearing a short dress. A man says something.</p>
+      <p>I smile. It’s a good day if I’m cat-called.  </p>
+      <p>Most people who have written something are just 36 year olds.</p>
+      <p>They were once 23. I’m 23 and almost 3/4.</p>
+      <p>She disassembles and reassembles a bed frame. </p> 
+      <p>She wakes up and an entire year slaps you in the face. </p> 
+      <p>It feels like I could reach through the past and call you. </p>
+      <p>I don’t remember why she can’t. </p>
+      <p>She knew what it felt like when you arrived. </p>
+      <p>It established herself. She felt nicely inside. </p>
+      <p>I stretch beyond it now. Thinned-out, diluted. </p>
+      <p>At least she expands. </p>
+      <button id="closeWriting18">Close</button>
     </div>
   </div>
 
@@ -1124,6 +1155,37 @@
     });
 
     [passwordModal17, writingModal17].forEach(modal => {
+      modal.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+    });
+
+    // fish 18
+    const fish18 = document.getElementById("fish18");
+    const passwordModal18 = document.getElementById("passwordModal18");
+    const writingModal18 = document.getElementById("writingModal18");
+    const submitBtn18 = document.getElementById("submitPassword18");
+    const closeWriting18 = document.getElementById("closeWriting18");
+
+    fish18.addEventListener("click", () => {
+      passwordModal18.style.display = "flex";
+    });
+    
+    submitBtn18.addEventListener("click", () => {
+      const password = document.getElementById("passwordInput18").value;
+      if (password === "bedframe") {  // different password
+        passwordModal18.style.display = "none";
+        writingModal18.style.display = "flex";
+      } else {
+        alert("sorry :(");
+      }
+    });
+
+    closeWriting18.addEventListener("click", () => {
+      writingModal18.style.display = "none";
+    });
+
+    [passwordModal18, writingModal18].forEach(modal => {
       modal.addEventListener("click", e => {
         if (e.target === modal) modal.style.display = "none";
       });
