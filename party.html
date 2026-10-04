@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>party</title>
+  
+  
+  <style>
+    body {
+      position: realtive;
+      margin: 0;
+      height: 100vh;
+      background: #B369F0;
+      overflow: hidden;
+      font-family: sans-serif;
+      text-align: center;
 
+      
+    }
+
+    
+
+    #cj1 {
+      transform: scaleX(-1);
+      position: absolute;
+      top: 40%;
+      left: 10px; /* start off screen */
+      width: 150px;
+      cursor: pointer;
+      animation: bob 4s ease-in-out infinite;
+    }
+
+
+     #cj3 {
+      transform: scaleX(-5);
+      position: absolute;
+      top: 20%;
+      left: 200px; /* start off screen */
+      width: 150px;
+      cursor: pointer;
+      animation: bob 2s ease-in-out infinite;
+    }
+
+
+      #cj5 {
+      transform: scaleX(-9);
+      position: absolute;
+      top: 70%;
+      left: 500px; /* start off screen */
+      width: 110px;
+      cursor: pointer;
+      animation: bob 7s ease-in-out infinite;
+    }
+
+
+    #cj7 {
+      transform: scaleX(3);
+      position: absolute;
+      top: 0%;
+      left: 300px; /* start off screen */
+      width: 200px;
+      cursor: pointer;
+      animation: bob 3s ease-in-out infinite;
+    }
+
+
+
+    @keyframes swim {
+      0%   { left: -200px; transform: scaleX(1); }     /* face right */
+      50%  { left: 100vw; transform: scaleX(1); }      /* move right */
+      51%  { transform: scaleX(-1); }                  /* flip to face left */
+      100% { left: -200px; transform: scaleX(-1); }    /* move left */
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: scaleX(-1) translateY(0); }
+      50%      { transform: scaleX(-1) translateY(20px); }
+      
+    }
+  </style>
+</head>
+<body>
+  <h1> party. </h1>
+    <p>743 S Fourth Street #3F </p>
+    <p>oct 16, 8 pm</p>
+    <p>byo PLEASE</p>
+    <p>cats live here: severe alergy BE WARNED</p>
+  
+  <img id="cj1" src="images/apart1.png" alt="cj1">
+  <img id="cj3" src="images/apart3.png" alt="cj3">
+  <img id="cj5" src="images/apart2.png" alt="cj5">
+  <img id="cj7" src="images/apart4.png" width="10000" alt="cj7">
+
+</body>
+</html>
