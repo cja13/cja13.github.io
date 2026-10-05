@@ -38,7 +38,7 @@
       position: absolute;
       top: 70%;
       left: 200px; /* start off screen */
-      width: 150px;
+      width: 800px;
       cursor: pointer;
       animation: bob 2s ease-in-out infinite;
     }
@@ -70,13 +70,13 @@
     @keyframes swim {
       0%   { left: -200px; transform: scaleX(1); }     /* face right */
       50%  { left: 100vw; transform: scaleX(1); }      /* move right */
-      51%  { transform: scaleX(-1); }                  /* flip to face left */
+      51%  { transform: scaleX(1); }                  /* flip to face left */
       100% { left: -200px; transform: scaleX(-1); }    /* move left */
     }
 
     @keyframes bob {
-      0%, 100% { transform: scaleX(-1) translateY(0); }
-      50%      { transform: scaleX(-1) translateY(20px); }
+      0%, 100% { transform: scaleX(1) translateY(0); }
+      50%      { transform: scaleX(1) translateY(20px); }
       
     }
   </style>
